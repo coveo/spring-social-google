@@ -22,10 +22,12 @@ import org.springframework.social.google.api.tasks.TaskStatus;
  * {@link ApiEnumDeserializer} for {@link TaskStatus}
  * @author Gabriel Axel
  */
-public class TaskStatusDeserializer extends ApiEnumDeserializer<TaskStatus> {
+public class TaskStatusDeserializer extends ApiEnumDeserializer<TaskStatus>
+{
 
-	public TaskStatusDeserializer() {
-		super(TaskStatus.class);
-	}
+    public TaskStatusDeserializer()
+    {
+        super(TaskStatus.class);
+    }
 
 }

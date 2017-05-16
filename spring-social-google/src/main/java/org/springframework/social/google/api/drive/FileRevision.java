@@ -24,124 +24,144 @@ import org.springframework.social.google.api.ApiEntity;
  * Model class representing a file revision in Google Drive
  * @author Gabriel Axel
  */
-public class FileRevision extends ApiEntity {
-	
-	public static class FileRevisionBuilder {
-		
-		private boolean pinned;
-		
-		private boolean publishAuto;
-		
-		private boolean published;
-		
-		private boolean publishedOutsideDomain;
+public class FileRevision extends ApiEntity
+{
 
-		public FileRevisionBuilder setPinned(boolean pinned) {
-			this.pinned = pinned;
-			return this;
-		}
+    public static class FileRevisionBuilder
+    {
 
-		public FileRevisionBuilder setPublishAuto(boolean publishAuto) {
-			this.publishAuto = publishAuto;
-			return this;
-		}
+        private boolean pinned;
 
-		public FileRevisionBuilder setPublished(boolean published) {
-			this.published = published;
-			return this;
-		}
+        private boolean publishAuto;
 
-		public FileRevisionBuilder setPublishedOutsideDomain(boolean publishedOutsideDomain) {
-			this.publishedOutsideDomain = publishedOutsideDomain;
-			return this;
-		}
-		
-		public FileRevision build() {
-			FileRevision revision = new FileRevision();
-			revision.pinned = pinned;
-			revision.publishAuto = publishAuto;
-			revision.published = published;
-			revision.publishedOutsideDomain = publishedOutsideDomain;
-			return revision;
-		}
-	}
+        private boolean published;
 
-	private String mimeType;
-	
-	private Date modifiedDate;
-	
-	private boolean pinned;
-	
-	private boolean published;
-	
-	private String publishedLink;
-	
-	private boolean publishAuto;
-	
-	private boolean publishedOutsideDomain;
-	
-	private String downloadUrl;
-	
-	private Map<String, String> exportLinks;
-	
-	private String lastModifyingUserName;
-	
-	private String originalFilename;
-	
-	private String md5Checksum;
-	
-	private long fileSize;
+        private boolean publishedOutsideDomain;
 
-	public String getMimeType() {
-		return mimeType;
-	}
+        public FileRevisionBuilder setPinned(boolean pinned)
+        {
+            this.pinned = pinned;
+            return this;
+        }
 
-	public Date getModifiedDate() {
-		return modifiedDate;
-	}
+        public FileRevisionBuilder setPublishAuto(boolean publishAuto)
+        {
+            this.publishAuto = publishAuto;
+            return this;
+        }
 
-	public boolean isPinned() {
-		return pinned;
-	}
+        public FileRevisionBuilder setPublished(boolean published)
+        {
+            this.published = published;
+            return this;
+        }
 
-	public boolean isPublished() {
-		return published;
-	}
+        public FileRevisionBuilder setPublishedOutsideDomain(boolean publishedOutsideDomain)
+        {
+            this.publishedOutsideDomain = publishedOutsideDomain;
+            return this;
+        }
 
-	public String getPublishedLink() {
-		return publishedLink;
-	}
+        public FileRevision build()
+        {
+            FileRevision revision = new FileRevision();
+            revision.pinned = pinned;
+            revision.publishAuto = publishAuto;
+            revision.published = published;
+            revision.publishedOutsideDomain = publishedOutsideDomain;
+            return revision;
+        }
+    }
 
-	public boolean isPublishAuto() {
-		return publishAuto;
-	}
+    private String mimeType;
 
-	public boolean isPublishedOutsideDomain() {
-		return publishedOutsideDomain;
-	}
+    private Date modifiedDate;
 
-	public String getDownloadUrl() {
-		return downloadUrl;
-	}
+    private boolean pinned;
 
-	public Map<String, String> getExportLinks() {
-		return exportLinks;
-	}
+    private boolean published;
 
-	public String getLastModifyingUserName() {
-		return lastModifyingUserName;
-	}
+    private String publishedLink;
 
-	public String getOriginalFilename() {
-		return originalFilename;
-	}
+    private boolean publishAuto;
 
-	public String getMd5Checksum() {
-		return md5Checksum;
-	}
+    private boolean publishedOutsideDomain;
 
-	public long getFileSize() {
-		return fileSize;
-	}
-	
+    private String downloadUrl;
+
+    private Map<String, String> exportLinks;
+
+    private String lastModifyingUserName;
+
+    private String originalFilename;
+
+    private String md5Checksum;
+
+    private long fileSize;
+
+    public String getMimeType()
+    {
+        return mimeType;
+    }
+
+    public Date getModifiedDate()
+    {
+        return modifiedDate;
+    }
+
+    public boolean isPinned()
+    {
+        return pinned;
+    }
+
+    public boolean isPublished()
+    {
+        return published;
+    }
+
+    public String getPublishedLink()
+    {
+        return publishedLink;
+    }
+
+    public boolean isPublishAuto()
+    {
+        return publishAuto;
+    }
+
+    public boolean isPublishedOutsideDomain()
+    {
+        return publishedOutsideDomain;
+    }
+
+    public String getDownloadUrl()
+    {
+        return downloadUrl;
+    }
+
+    public Map<String, String> getExportLinks()
+    {
+        return exportLinks;
+    }
+
+    public String getLastModifyingUserName()
+    {
+        return lastModifyingUserName;
+    }
+
+    public String getOriginalFilename()
+    {
+        return originalFilename;
+    }
+
+    public String getMd5Checksum()
+    {
+        return md5Checksum;
+    }
+
+    public long getFileSize()
+    {
+        return fileSize;
+    }
+
 }

@@ -29,339 +29,390 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
  * Model class representing a file in Google Drive
- * 
+ *
  * @author Gabriel Axel
  */
-public class DriveFile extends ApiEntity {
+public class DriveFile extends ApiEntity
+{
 
-	public static final String FOLDER = "application/vnd.google-apps.folder";
-	public static final String SHORTCUT = "application/vnd.google-apps.drive-sdk";
+    public static final String FOLDER = "application/vnd.google-apps.folder";
+    public static final String SHORTCUT = "application/vnd.google-apps.drive-sdk";
 
-	public static class Builder {
+    public static class Builder
+    {
 
-		private String title;
+        private String title;
 
-		private String description;
+        private String description;
 
-		private String indexableText;
+        private String indexableText;
 
-		private boolean starred;
+        private boolean starred;
 
-		private boolean hidden;
+        private boolean hidden;
+
+        private boolean trashed;
+
+        private boolean restricted;
+
+        private boolean viewed;
+
+        private Date lastViewedByMeDate;
+
+        private String mimeType;
+
+        private Date modifiedDate;
+
+        private Collection<String> parentIds = new HashSet<>();
+
+        private Builder()
+        {
+        }
+
+        public Builder setTitle(String title)
+        {
+            this.title = title;
+            return this;
+        }
+
+        public Builder setDescription(String description)
+        {
+            this.description = description;
+            return this;
+        }
+
+        public Builder setIndexableText(String indexableText)
+        {
+            this.indexableText = indexableText;
+            return this;
+        }
+
+        public Builder setStarred(boolean starred)
+        {
+            this.starred = starred;
+            return this;
+        }
+
+        public Builder setHidden(boolean hidden)
+        {
+            this.hidden = hidden;
+            return this;
+        }
+
+        public Builder setTrashed(boolean trashed)
+        {
+            this.trashed = trashed;
+            return this;
+        }
+
+        public Builder setRestricted(boolean restricted)
+        {
+            this.restricted = restricted;
+            return this;
+        }
+
+        public Builder setViewed(boolean viewed)
+        {
+            this.viewed = viewed;
+            return this;
+        }
+
+        public Builder setLastViewedByMeDate(Date lastViewedByMeDate)
+        {
+            this.lastViewedByMeDate = lastViewedByMeDate;
+            return this;
+        }
+
+        public Builder setMimeType(String mimeType)
+        {
+            this.mimeType = mimeType;
+            return this;
+        }
 
-		private boolean trashed;
-
-		private boolean restricted;
-
-		private boolean viewed;
-
-		private Date lastViewedByMeDate;
+        public Builder setModifiedDate(Date modifiedDate)
+        {
+            this.modifiedDate = modifiedDate;
+            return this;
+        }
 
-		private String mimeType;
-
-		private Date modifiedDate;
+        public Builder setParents(Collection<String> parentIds)
+        {
+            this.parentIds = parentIds;
+            return this;
+        }
 
-		private Collection<String> parentIds = new HashSet<String>();
+        public Builder setParents(String... parentIds)
+        {
+            return setParents(Arrays.asList(parentIds));
+        }
 
-		private Builder() {
-		}
+        public DriveFile build()
+        {
+            DriveFile file = new DriveFile();
+            file.title = title;
+            file.description = description;
+            file.indexableText = new IndexableTextObject(indexableText);
+            file.labels = new Labels();
+            file.labels.starred = starred;
+            file.labels.hidden = hidden;
+            file.labels.trashed = trashed;
+            file.labels.restricted = restricted;
+            file.labels.viewed = viewed;
+            file.lastViewedByMeDate = lastViewedByMeDate;
+            file.mimeType = mimeType;
+            file.modifiedDate = modifiedDate;
+            file.parents = new ArrayList<>();
+            for (String parentId : parentIds) {
+                if (parentId != null) {
+                    file.parents.add(new DriveFileParent(parentId));
+                }
+            }
+            return file;
+        }
+    }
 
-		public Builder setTitle(String title) {
-			this.title = title;
-			return this;
-		}
+    private static class Labels
+    {
 
-		public Builder setDescription(String description) {
-			this.description = description;
-			return this;
-		}
+        @JsonProperty
+        private boolean starred;
 
-		public Builder setIndexableText(String indexableText) {
-			this.indexableText = indexableText;
-			return this;
-		}
+        @JsonProperty
+        private boolean hidden;
 
-		public Builder setStarred(boolean starred) {
-			this.starred = starred;
-			return this;
-		}
+        @JsonProperty
+        private boolean trashed;
 
-		public Builder setHidden(boolean hidden) {
-			this.hidden = hidden;
-			return this;
-		}
+        @JsonProperty
+        private boolean restricted;
 
-		public Builder setTrashed(boolean trashed) {
-			this.trashed = trashed;
-			return this;
-		}
+        @JsonProperty
+        private boolean viewed;
+    }
 
-		public Builder setRestricted(boolean restricted) {
-			this.restricted = restricted;
-			return this;
-		}
+    private static class IndexableTextObject
+    {
 
-		public Builder setViewed(boolean viewed) {
-			this.viewed = viewed;
-			return this;
-		}
+        @JsonProperty
+        private String text;
 
-		public Builder setLastViewedByMeDate(Date lastViewedByMeDate) {
-			this.lastViewedByMeDate = lastViewedByMeDate;
-			return this;
-		}
+        private IndexableTextObject(String text)
+        {
+            this.text = text;
+        }
+    }
 
-		public Builder setMimeType(String mimeType) {
-			this.mimeType = mimeType;
-			return this;
-		}
+    public static Builder builder()
+    {
+        return new Builder();
+    }
 
-		public Builder setModifiedDate(Date modifiedDate) {
-			this.modifiedDate = modifiedDate;
-			return this;
-		}
+    private String title;
 
-		public Builder setParents(Collection<String> parentIds) {
-			this.parentIds = parentIds;
-			return this;
-		}
+    private String description;
 
-		public Builder setParents(String... parentIds) {
-			return setParents(Arrays.asList(parentIds));
-		}
+    private String selfLink;
 
-		public DriveFile build() {
-			DriveFile file = new DriveFile();
-			file.title = title;
-			file.description = description;
-			file.indexableText = new IndexableTextObject(indexableText);
-			file.labels = new Labels();
-			file.labels.starred = starred;
-			file.labels.hidden = hidden;
-			file.labels.trashed = trashed;
-			file.labels.restricted = restricted;
-			file.labels.viewed = viewed;
-			file.lastViewedByMeDate = lastViewedByMeDate;
-			file.mimeType = mimeType;
-			file.modifiedDate = modifiedDate;
-			file.parents = new ArrayList<DriveFileParent>();
-			for (String parentId : parentIds) {
-				if (parentId != null) {
-					file.parents.add(new DriveFileParent(parentId));
-				}
-			}
-			return file;
-		}
-	}
+    private String alternateLink;
 
-	private static class Labels {
+    private String iconLink;
 
-		@JsonProperty
-		private boolean starred;
+    private String embedLink;
 
-		@JsonProperty
-		private boolean hidden;
+    private String thumbnailLink;
 
-		@JsonProperty
-		private boolean trashed;
+    private String mimeType;
 
-		@JsonProperty
-		private boolean restricted;
+    private String downloadUrl;
 
-		@JsonProperty
-		private boolean viewed;
-	}
+    @JsonProperty
+    private Labels labels;
 
-	private static class IndexableTextObject {
+    private Date createdDate;
 
-		@JsonProperty
-		private String text;
+    private Date modifiedDate;
 
-		private IndexableTextObject(String text) {
-			this.text = text;
-		}
-	}
+    private Date lastViewedByMeDate;
 
-	public static Builder builder() {
-		return new Builder();
-	}
+    private List<DriveFileParent> parents;
 
-	private String title;
+    private Map<String, String> exportLinks;
 
-	private String description;
+    private UserPermission userPermission;
 
-	private String selfLink;
+    private String md5Checksum;
 
-	private String alternateLink;
+    private long fileSize;
 
-	private String iconLink;
+    private long quotaBytesUsed;
 
-	private String embedLink;
+    private List<String> ownerNames;
 
-	private String thumbnailLink;
+    private String lastModifyingUserName;
 
-	private String mimeType;
+    private boolean editable;
 
-	private String downloadUrl;
+    private boolean writersCanShare;
 
-	@JsonProperty
-	private Labels labels;
+    private boolean appDataContents;
 
-	private Date createdDate;
+    /**
+     * This field is write-only
+     */
+    @JsonProperty
+    private IndexableTextObject indexableText;
 
-	private Date modifiedDate;
+    public boolean isFolder()
+    {
+        return FOLDER.equals(mimeType);
+    }
 
-	private Date lastViewedByMeDate;
+    public boolean isShortcut()
+    {
+        return mimeType != null && mimeType.startsWith(SHORTCUT);
+    }
 
-	private List<DriveFileParent> parents;
+    public String getTitle()
+    {
+        return title;
+    }
 
-	private Map<String, String> exportLinks;
-
-	private UserPermission userPermission;
-
-	private String md5Checksum;
-
-	private long fileSize;
-
-	private long quotaBytesUsed;
-
-	private List<String> ownerNames;
-
-	private String lastModifyingUserName;
-
-	private boolean editable;
-
-	private boolean writersCanShare;
-
-	private boolean appDataContents;
-
-	/**
-	 * This field is write-only
-	 */
-	@JsonProperty
-	private IndexableTextObject indexableText;
-
-	public boolean isFolder() {
-		return FOLDER.equals(mimeType);
-	}
-
-	public boolean isShortcut() {
-		return mimeType != null && mimeType.startsWith(SHORTCUT);
-	}
-
-	public String getTitle() {
-		return title;
-	}
-
-	public String getDescription() {
-		return description;
-	}
-
-	public String getSelfLink() {
-		return selfLink;
-	}
-
-	public String getAlternateLink() {
-		return alternateLink;
-	}
-
-	public String getIconLink() {
-		return iconLink;
-	}
-
-	public String getEmbedLink() {
-		return embedLink;
-	}
-
-	public String getThumbnailLink() {
-		return thumbnailLink;
-	}
-
-	public String getMimeType() {
-		return mimeType;
-	}
-
-	/**
-	 * @return Short lived download link that requires authentication
-	 */
-	public String getDownloadUrl() {
-		return downloadUrl;
-	}
-
-	public Date getCreatedDate() {
-		return createdDate;
-	}
-
-	public Date getModifiedDate() {
-		return modifiedDate;
-	}
-
-	public Date getLastViewedByMeDate() {
-		return lastViewedByMeDate;
-	}
-
-	public List<DriveFileParent> getParents() {
-		return parents;
-	}
-
-	public Map<String, String> getExportLinks() {
-		return exportLinks;
-	}
-
-	public UserPermission getUserPermission() {
-		return userPermission;
-	}
-
-	public String getMd5Checksum() {
-		return md5Checksum;
-	}
-
-	public long getFileSize() {
-		return fileSize;
-	}
-
-	public long getQuotaBytesUsed() {
-		return quotaBytesUsed;
-	}
-
-	public List<String> getOwnerNames() {
-		return ownerNames;
-	}
-
-	public String getLastModifyingUserName() {
-		return lastModifyingUserName;
-	}
-
-	public boolean isEditable() {
-		return editable;
-	}
-
-	public boolean isWritersCanShare() {
-		return writersCanShare;
-	}
-
-	public boolean isAppDataContents() {
-		return appDataContents;
-	}
-
-	public boolean isStarred() {
-		return labels.starred;
-	}
-
-	public boolean isHidden() {
-		return labels.hidden;
-	}
-
-	public boolean isTrashed() {
-		return labels.trashed;
-	}
-
-	public boolean isRestricted() {
-		return labels.restricted;
-	}
-
-	public boolean isViewed() {
-		return labels.viewed;
-	}
+    public String getDescription()
+    {
+        return description;
+    }
+
+    public String getSelfLink()
+    {
+        return selfLink;
+    }
+
+    public String getAlternateLink()
+    {
+        return alternateLink;
+    }
+
+    public String getIconLink()
+    {
+        return iconLink;
+    }
+
+    public String getEmbedLink()
+    {
+        return embedLink;
+    }
+
+    public String getThumbnailLink()
+    {
+        return thumbnailLink;
+    }
+
+    public String getMimeType()
+    {
+        return mimeType;
+    }
+
+    /**
+     * @return Short lived download link that requires authentication
+     */
+    public String getDownloadUrl()
+    {
+        return downloadUrl;
+    }
+
+    public Date getCreatedDate()
+    {
+        return createdDate;
+    }
+
+    public Date getModifiedDate()
+    {
+        return modifiedDate;
+    }
+
+    public Date getLastViewedByMeDate()
+    {
+        return lastViewedByMeDate;
+    }
+
+    public List<DriveFileParent> getParents()
+    {
+        return parents;
+    }
+
+    public Map<String, String> getExportLinks()
+    {
+        return exportLinks;
+    }
+
+    public UserPermission getUserPermission()
+    {
+        return userPermission;
+    }
+
+    public String getMd5Checksum()
+    {
+        return md5Checksum;
+    }
+
+    public long getFileSize()
+    {
+        return fileSize;
+    }
+
+    public long getQuotaBytesUsed()
+    {
+        return quotaBytesUsed;
+    }
+
+    public List<String> getOwnerNames()
+    {
+        return ownerNames;
+    }
+
+    public String getLastModifyingUserName()
+    {
+        return lastModifyingUserName;
+    }
+
+    public boolean isEditable()
+    {
+        return editable;
+    }
+
+    public boolean isWritersCanShare()
+    {
+        return writersCanShare;
+    }
+
+    public boolean isAppDataContents()
+    {
+        return appDataContents;
+    }
+
+    public boolean isStarred()
+    {
+        return labels.starred;
+    }
+
+    public boolean isHidden()
+    {
+        return labels.hidden;
+    }
+
+    public boolean isTrashed()
+    {
+        return labels.trashed;
+    }
+
+    public boolean isRestricted()
+    {
+        return labels.restricted;
+    }
+
+    public boolean isViewed()
+    {
+        return labels.viewed;
+    }
 
 }

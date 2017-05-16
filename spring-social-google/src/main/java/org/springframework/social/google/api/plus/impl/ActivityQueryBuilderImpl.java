@@ -25,20 +25,25 @@ import org.springframework.web.client.RestTemplate;
  * {@link ActivityQueryBuilder} implementation.
  * @author Gabriel Axel
  */
-public class ActivityQueryBuilderImpl extends ApiQueryBuilderImpl<ActivityQueryBuilder, ActivitiesPage> implements ActivityQueryBuilder {
-	
-	public ActivityQueryBuilderImpl(RestTemplate restTemplate) {
-		super("https://www.googleapis.com/plus/v1/activities", ActivitiesPage.class, restTemplate);
-	}
-	
-	@Override
-	public ActivityQueryBuilder searchFor(String text) {
-		return appendQueryParam("query", encode(text));
-	}
-	
-	@Override
-	public ActivityQueryBuilder orderBy(ActivitiesOrder order) {
-		return appendQueryParam("orderBy", order);
-	}
+public class ActivityQueryBuilderImpl extends ApiQueryBuilderImpl<ActivityQueryBuilder, ActivitiesPage>
+        implements ActivityQueryBuilder
+{
+
+    public ActivityQueryBuilderImpl(RestTemplate restTemplate)
+    {
+        super("https://www.googleapis.com/plus/v1/activities", ActivitiesPage.class, restTemplate);
+    }
+
+    @Override
+    public ActivityQueryBuilder searchFor(String text)
+    {
+        return appendQueryParam("query", encode(text));
+    }
+
+    @Override
+    public ActivityQueryBuilder orderBy(ActivitiesOrder order)
+    {
+        return appendQueryParam("orderBy", order);
+    }
 
 }

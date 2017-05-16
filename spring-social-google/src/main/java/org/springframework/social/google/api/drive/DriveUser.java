@@ -21,31 +21,36 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * Model class representing a Google Drive user
  * @author Gabriel Axel
  */
-public class DriveUser {
+public class DriveUser
+{
 
-	private static class Picture {
+    private static class Picture
+    {
 
-		@JsonProperty
-		private String url;
-	}
-	
-	private String displayName;
-	
-	@JsonProperty("isAuthenticatedUser")
-	private boolean authenticatedUser;
-	
-	@JsonProperty
-	private Picture picture;
-	
-	public String getDisplayName() {
-		return displayName;
-	}
-	
-	public String getPictureUrl() {
-		return picture != null ? picture.url : null;
-	}
-	
-	public boolean isAuthenticatedUser() {
-		return authenticatedUser;
-	}
+        @JsonProperty
+        private String url;
+    }
+
+    private String displayName;
+
+    @JsonProperty("isAuthenticatedUser")
+    private boolean authenticatedUser;
+
+    @JsonProperty
+    private Picture picture;
+
+    public String getDisplayName()
+    {
+        return displayName;
+    }
+
+    public String getPictureUrl()
+    {
+        return picture != null ? picture.url : null;
+    }
+
+    public boolean isAuthenticatedUser()
+    {
+        return authenticatedUser;
+    }
 }

@@ -17,20 +17,21 @@ package org.springframework.social.google.api.plus.moments;
 
 /**
  * Constants for the available moment types
- * 
+ *
  * @author Gabriel Axel
- * 
+ *
  */
-interface MomentTypes {
+interface MomentTypes
+{
 
-	String ADD_ACTIVITY = "http://schemas.google.com/AddActivity";
-	String BUY_ACTIVITY = "http://schemas.google.com/BuyActivity";
-	String CHECK_IN_ACTIVITY = "http://schemas.google.com/CheckInActivity";
-	String COMMENT_ACTIVITY = "http://schemas.google.com/CommentActivity";
-	String CREATE_ACTIVITY = "http://schemas.google.com/CreateActivity";
-	String DISCOVER_ACTIVITY = "http://schemas.google.com/DiscoverActivity";
-	String LISTEN_ACTIVITY = "http://schemas.google.com/ListenActivity";
-	String RESERVE_ACTIVITY = "http://schemas.google.com/ReserveActivity";
-	String REVIEW_ACTIVITY = "http://schemas.google.com/ReviewActivity";
-	String WANT_ACTIVITY = "http://schemas.google.com/WantActivity";
+    String ADD_ACTIVITY = "http://schemas.google.com/AddActivity";
+    String BUY_ACTIVITY = "http://schemas.google.com/BuyActivity";
+    String CHECK_IN_ACTIVITY = "http://schemas.google.com/CheckInActivity";
+    String COMMENT_ACTIVITY = "http://schemas.google.com/CommentActivity";
+    String CREATE_ACTIVITY = "http://schemas.google.com/CreateActivity";
+    String DISCOVER_ACTIVITY = "http://schemas.google.com/DiscoverActivity";
+    String LISTEN_ACTIVITY = "http://schemas.google.com/ListenActivity";
+    String RESERVE_ACTIVITY = "http://schemas.google.com/ReserveActivity";
+    String REVIEW_ACTIVITY = "http://schemas.google.com/ReviewActivity";
+    String WANT_ACTIVITY = "http://schemas.google.com/WantActivity";
 }

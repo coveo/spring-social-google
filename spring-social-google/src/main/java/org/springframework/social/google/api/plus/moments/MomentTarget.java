@@ -7,89 +7,104 @@ import java.util.List;
  * A moment's target. Construct with a URL of a resource containing metadata as
  * required for the specific activity type. When fetching, the fields will
  * contain the metadata values from that resource.
- * 
+ *
  * @author Gabriel Axel
- * 
+ *
  */
-public class MomentTarget {
+public class MomentTarget
+{
 
-	private String url;
+    private String url;
 
-	private String id;
+    private String id;
 
-	private String name;
+    private String name;
 
-	private String description;
+    private String description;
 
-	private String image;
+    private String image;
 
-	private List<Author> author;
+    private List<Author> author;
 
-	private String text;
+    private String text;
 
-	private Date datePublished;
+    private Date datePublished;
 
-	private String duration;
+    private String duration;
 
-	private Album inAlbum;
+    private Album inAlbum;
 
-	private Audio audio;
+    private Audio audio;
 
-	private Artist byArtist;
+    private Artist byArtist;
 
-	protected MomentTarget() {
-	}
+    protected MomentTarget()
+    {
+    }
 
-	public MomentTarget(String url) {
-		this.url = url;
-	}
+    public MomentTarget(String url)
+    {
+        this.url = url;
+    }
 
-	public String getUrl() {
-		return url;
-	}
+    public String getUrl()
+    {
+        return url;
+    }
 
-	public String getId() {
-		return id;
-	}
+    public String getId()
+    {
+        return id;
+    }
 
-	public String getName() {
-		return name;
-	}
+    public String getName()
+    {
+        return name;
+    }
 
-	public String getDescription() {
-		return description;
-	}
+    public String getDescription()
+    {
+        return description;
+    }
 
-	public String getImage() {
-		return image;
-	}
+    public String getImage()
+    {
+        return image;
+    }
 
-	public List<Author> getAuthor() {
-		return author;
-	}
+    public List<Author> getAuthor()
+    {
+        return author;
+    }
 
-	public String getText() {
-		return text;
-	}
+    public String getText()
+    {
+        return text;
+    }
 
-	public Date getDatePublished() {
-		return datePublished;
-	}
+    public Date getDatePublished()
+    {
+        return datePublished;
+    }
 
-	public String getDuration() {
-		return duration;
-	}
+    public String getDuration()
+    {
+        return duration;
+    }
 
-	public Album getInAlbum() {
-		return inAlbum;
-	}
+    public Album getInAlbum()
+    {
+        return inAlbum;
+    }
 
-	public Audio getAudio() {
-		return audio;
-	}
+    public Audio getAudio()
+    {
+        return audio;
+    }
 
-	public Artist getByArtist() {
-		return byArtist;
-	}
+    public Artist getByArtist()
+    {
+        return byArtist;
+    }
 
 }

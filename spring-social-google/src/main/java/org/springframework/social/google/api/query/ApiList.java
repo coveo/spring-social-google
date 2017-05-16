@@ -22,24 +22,29 @@ import java.util.List;
  * @author Gabriel Axel
  * @param <T> item type
  */
-public abstract class ApiList<T> {
+public abstract class ApiList<T>
+{
 
-	private List<T> items;
-	private String etag;
+    private List<T> items;
+    private String etag;
 
-	protected ApiList() {
-	}
-	
-	protected ApiList(List<T> items) {
-		this.items = items;
-	}
+    protected ApiList()
+    {
+    }
 
-	public List<T> getItems() {
-		return items;
-	}
+    protected ApiList(List<T> items)
+    {
+        this.items = items;
+    }
 
-	public String getEtag() {
-		return etag;
-	}
+    public List<T> getItems()
+    {
+        return items;
+    }
+
+    public String getEtag()
+    {
+        return etag;
+    }
 
 }

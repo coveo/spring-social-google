@@ -22,10 +22,12 @@ import org.springframework.social.google.api.impl.ApiEnumDeserializer;
  * {@link ApiEnumDeserializer} for {@link ReplyVerb}
  * @author Gabriel Axel
  */
-public class ReplyVerbDeserializer extends ApiEnumDeserializer<ReplyVerb> {
+public class ReplyVerbDeserializer extends ApiEnumDeserializer<ReplyVerb>
+{
 
-	public ReplyVerbDeserializer() {
-		super(ReplyVerb.class);
-	}
+    public ReplyVerbDeserializer()
+    {
+        super(ReplyVerb.class);
+    }
 
 }

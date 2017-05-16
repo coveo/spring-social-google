@@ -25,9 +25,10 @@ import com.fasterxml.jackson.databind.annotation.JsonSerialize;
  * Enum representing a comment reply verb (resolve or reopen)
  * @author Gabriel Axel
  */
-@JsonSerialize(using=ApiEnumSerializer.class)
-@JsonDeserialize(using=ReplyVerbDeserializer.class)
-public enum ReplyVerb {
+@JsonSerialize(using = ApiEnumSerializer.class)
+@JsonDeserialize(using = ReplyVerbDeserializer.class)
+public enum ReplyVerb
+{
 
-	RESOLVE, REOPEN
+    RESOLVE, REOPEN
 }

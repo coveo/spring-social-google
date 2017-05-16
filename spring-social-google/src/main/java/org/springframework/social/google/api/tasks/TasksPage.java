@@ -21,6 +21,7 @@ import org.springframework.social.google.api.query.ApiPage;
  * {@link ApiPage} of {@link Task}
  * @author Gabriel Axel
  */
-public class TasksPage extends ApiPage<Task> {
+public class TasksPage extends ApiPage<Task>
+{
 
 }

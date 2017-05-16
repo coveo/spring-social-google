@@ -23,40 +23,42 @@ import com.fasterxml.jackson.databind.DeserializationContext;
 import com.fasterxml.jackson.databind.JsonDeserializer;
 
 /**
- * Jackson {@link JsonDeserializer} that converts a camel case string to 
+ * Jackson {@link JsonDeserializer} that converts a camel case string to
  * capital underscored string and finds the enum value with that name.
  * @author Gabriel Axel
  *
  * @param <T> enum type
  */
-public abstract class ApiEnumDeserializer<T extends Enum<?>> extends JsonDeserializer<T> {
+public abstract class ApiEnumDeserializer<T extends Enum<?>> extends JsonDeserializer<T>
+{
 
-	private final Class<T> type;
-	
-	public ApiEnumDeserializer(Class<T> type) {
-		this.type = type;
-	}
-	
-	@Override
-	public T deserialize(JsonParser jp, DeserializationContext ctxt)
-			throws IOException, JsonProcessingException {
+    private final Class<T> type;
 
-		String camelCase = jp.getText();
-		
-		StringBuilder sb = new StringBuilder();
-		for(int i = 0; i < camelCase.length(); i++) {
-			char c = camelCase.charAt(i);
-			if(Character.isUpperCase(c)) {
-				sb.append('_').append(c);
-			} else {
-				sb.append(Character.toUpperCase(c));
-			}
-		}
-		
-		@SuppressWarnings({ "rawtypes", "unchecked" })
-		T value = (T)Enum.valueOf((Class)type, sb.toString());
-		
-		return value;
-	}
+    public ApiEnumDeserializer(Class<T> type)
+    {
+        this.type = type;
+    }
+
+    @Override
+    public T deserialize(JsonParser jp, DeserializationContext ctxt) throws IOException, JsonProcessingException
+    {
+
+        String camelCase = jp.getText();
+
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < camelCase.length(); i++) {
+            char c = camelCase.charAt(i);
+            if (Character.isUpperCase(c)) {
+                sb.append('_').append(c);
+            } else {
+                sb.append(Character.toUpperCase(c));
+            }
+        }
+
+        @SuppressWarnings({ "rawtypes", "unchecked" })
+        T value = (T) Enum.valueOf((Class) type, sb.toString());
+
+        return value;
+    }
 
 }

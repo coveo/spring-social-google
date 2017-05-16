@@ -15,9 +15,8 @@
  */
 package org.springframework.social.google.api.tasks;
 
-import static com.fasterxml.jackson.annotation.JsonFormat.Shape.STRING;
-import static org.springframework.social.google.api.tasks.TaskStatus.COMPLETED;
-import static org.springframework.social.google.api.tasks.TaskStatus.NEEDS_ACTION;
+import static com.fasterxml.jackson.annotation.JsonFormat.Shape.*;
+import static org.springframework.social.google.api.tasks.TaskStatus.*;
 
 import java.util.Date;
 
@@ -29,94 +28,109 @@ import com.fasterxml.jackson.annotation.JsonFormat;
  * Model class representing a task
  * @author Gabriel Axel
  */
-public class Task extends ApiEntity {
+public class Task extends ApiEntity
+{
 
-	private String title;
-	
-	private String notes;
-	
-	@JsonFormat(shape=STRING, pattern="yyyy-MM-dd'T'HH:mm:ss.SSSSSS'Z'", timezone="UTC")
-	private Date due;
-	
-	private String parent;
-	
-	private String position;
-	
-	private Date updated;
-	
-	private TaskStatus status;
-	
-	private Date completed;
+    private String title;
 
-	public Task() {
-		
-	}
-	
-	public Task(String id) {
-		super(id);
-	}
-	
-	public Task(String id, String title, String notes, Date due, Date completed) {
-		super(id);
-		this.title = title;
-		this.notes = notes;
-		this.due = due;
-		setCompleted(completed);
-	}
-	
-	public Task(String title, String notes, Date due) {
-		this(null, title, notes, due, null);
-	}
+    private String notes;
 
-	public String getTitle() {
-		return title;
-	}
+    @JsonFormat(shape = STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss.SSSSSS'Z'", timezone = "UTC")
+    private Date due;
 
-	public void setTitle(String title) {
-		this.title = title;
-	}
+    private String parent;
 
-	public String getNotes() {
-		return notes;
-	}
+    private String position;
 
-	public void setNotes(String notes) {
-		this.notes = notes;
-	}
+    private Date updated;
 
-	public Date getDue() {
-		return due;
-	}
+    private TaskStatus status;
 
-	public void setDue(Date due) {
-		this.due = due;
-	}
+    private Date completed;
 
-	public String getParent() {
-		return parent;
-	}
+    public Task()
+    {
 
-	public String getPosition() {
-		return position;
-	}
+    }
 
-	public Date getUpdated() {
-		return updated;
-	}
+    public Task(String id)
+    {
+        super(id);
+    }
 
-	public TaskStatus getStatus() {
-		return status;
-	}
+    public Task(String id, String title, String notes, Date due, Date completed)
+    {
+        super(id);
+        this.title = title;
+        this.notes = notes;
+        this.due = due;
+        setCompleted(completed);
+    }
 
-	public Date getCompleted() {
-		return completed;
-	}
+    public Task(String title, String notes, Date due)
+    {
+        this(null, title, notes, due, null);
+    }
 
-	public void setCompleted(Date completed) {
-		this.completed = completed;
-		status = completed == null ? NEEDS_ACTION : COMPLETED;
-	}
-	
-	
-	
+    public String getTitle()
+    {
+        return title;
+    }
+
+    public void setTitle(String title)
+    {
+        this.title = title;
+    }
+
+    public String getNotes()
+    {
+        return notes;
+    }
+
+    public void setNotes(String notes)
+    {
+        this.notes = notes;
+    }
+
+    public Date getDue()
+    {
+        return due;
+    }
+
+    public void setDue(Date due)
+    {
+        this.due = due;
+    }
+
+    public String getParent()
+    {
+        return parent;
+    }
+
+    public String getPosition()
+    {
+        return position;
+    }
+
+    public Date getUpdated()
+    {
+        return updated;
+    }
+
+    public TaskStatus getStatus()
+    {
+        return status;
+    }
+
+    public Date getCompleted()
+    {
+        return completed;
+    }
+
+    public void setCompleted(Date completed)
+    {
+        this.completed = completed;
+        status = completed == null ? NEEDS_ACTION : COMPLETED;
+    }
+
 }

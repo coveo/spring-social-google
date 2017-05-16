@@ -21,28 +21,34 @@ import org.springframework.social.google.api.ApiEntity;
  * Model class representing a task list
  * @author Gabriel Axel
  */
-public class TaskList extends ApiEntity {
+public class TaskList extends ApiEntity
+{
 
-	private String title;
-	
-	public TaskList() {
-	}
-	
-	public TaskList(String id, String title) {
-		super(id);
-		this.title = title;
-	}
+    private String title;
 
-	public TaskList(String title) {
-		this.title = title;
-	}
-	
-	public String getTitle() {
-		return title;
-	}
+    public TaskList()
+    {
+    }
 
-	public void setTitle(String title) {
-		this.title = title;
-	}
-	
+    public TaskList(String id, String title)
+    {
+        super(id);
+        this.title = title;
+    }
+
+    public TaskList(String title)
+    {
+        this.title = title;
+    }
+
+    public String getTitle()
+    {
+        return title;
+    }
+
+    public void setTitle(String title)
+    {
+        this.title = title;
+    }
+
 }

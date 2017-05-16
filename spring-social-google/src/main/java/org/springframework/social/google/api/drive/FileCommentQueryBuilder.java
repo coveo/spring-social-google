@@ -24,10 +24,11 @@ import org.springframework.social.google.api.query.QueryBuilder;
  * {@link QueryBuilder} for {@link FileComment}
  * @author Gabriel Axel
  */
-public interface FileCommentQueryBuilder extends ApiQueryBuilder<FileCommentQueryBuilder, FileCommentsPage> {
+public interface FileCommentQueryBuilder extends ApiQueryBuilder<FileCommentQueryBuilder, FileCommentsPage>
+{
 
-	FileCommentQueryBuilder setIncludeDeleted(boolean includeDeleted);
+    FileCommentQueryBuilder setIncludeDeleted(boolean includeDeleted);
 
-	FileCommentQueryBuilder setUpdatedMin(Date updatedMin);
+    FileCommentQueryBuilder setUpdatedMin(Date updatedMin);
 
 }

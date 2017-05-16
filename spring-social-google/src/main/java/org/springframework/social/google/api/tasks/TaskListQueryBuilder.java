@@ -22,6 +22,7 @@ import org.springframework.social.google.api.query.QueryBuilder;
  * {@link QueryBuilder} for {@link TaskList}
  * @author Gabriel Axel
  */
-public interface TaskListQueryBuilder extends ApiQueryBuilder<TaskListQueryBuilder, TaskListsPage> {
+public interface TaskListQueryBuilder extends ApiQueryBuilder<TaskListQueryBuilder, TaskListsPage>
+{
 
 }

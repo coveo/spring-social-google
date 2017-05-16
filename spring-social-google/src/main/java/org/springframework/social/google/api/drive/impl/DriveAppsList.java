@@ -23,6 +23,7 @@ import org.springframework.social.google.api.query.ApiList;
  * @author Gabriel Axel
  *
  */
-public class DriveAppsList extends ApiList<DriveApp> {
+public class DriveAppsList extends ApiList<DriveApp>
+{
 
 }

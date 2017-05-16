@@ -22,20 +22,24 @@ import java.util.List;
  * @author Gabriel Axel
  * @param <T> item type
  */
-public abstract class ApiPage<T> extends ApiList<T> {
+public abstract class ApiPage<T> extends ApiList<T>
+{
 
-	private String nextPageToken;
-	
-	protected ApiPage() {
-	}
-	
-	protected ApiPage(List<T> items, String nextPageToken) {
-		super(items);
-		this.nextPageToken = nextPageToken;
-	}
-	
-	public String getNextPageToken() {
-		return nextPageToken;
-	}
+    private String nextPageToken;
+
+    protected ApiPage()
+    {
+    }
+
+    protected ApiPage(List<T> items, String nextPageToken)
+    {
+        super(items);
+        this.nextPageToken = nextPageToken;
+    }
+
+    public String getNextPageToken()
+    {
+        return nextPageToken;
+    }
 
 }

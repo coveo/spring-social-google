@@ -20,13 +20,15 @@ import org.springframework.social.google.api.impl.ApiEnumDeserializer;
 
 /**
  * {@link ApiEnumDeserializer} for {@link IconCategory}
- * 
+ *
  * @author Gabriel Axel
  */
-public class IconCategoryDeserializer extends ApiEnumDeserializer<IconCategory> {
+public class IconCategoryDeserializer extends ApiEnumDeserializer<IconCategory>
+{
 
-	public IconCategoryDeserializer() {
-		super(IconCategory.class);
-	}
+    public IconCategoryDeserializer()
+    {
+        super(IconCategory.class);
+    }
 
 }

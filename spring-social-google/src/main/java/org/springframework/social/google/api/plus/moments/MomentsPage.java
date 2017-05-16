@@ -19,9 +19,10 @@ import org.springframework.social.google.api.query.ApiPage;
 
 /**
  * {@link ApiPage} of {@link Moment}.
- * 
+ *
  * @author Gabriel Axel
  */
-public class MomentsPage extends ApiPage<Moment> {
+public class MomentsPage extends ApiPage<Moment>
+{
 
 }

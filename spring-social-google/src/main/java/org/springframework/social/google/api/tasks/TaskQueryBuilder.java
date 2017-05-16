@@ -24,15 +24,24 @@ import org.springframework.social.google.api.query.QueryBuilder;
  * {@link QueryBuilder} for {@link Task}
  * @author Gabriel Axel
  */
-public interface TaskQueryBuilder extends ApiQueryBuilder<TaskQueryBuilder, TasksPage> {
+public interface TaskQueryBuilder extends ApiQueryBuilder<TaskQueryBuilder, TasksPage>
+{
 
-	TaskQueryBuilder fromTaskList(String taskListId);
-	TaskQueryBuilder completedFrom(Date completedMin);
-	TaskQueryBuilder completedUntil(Date completedMax);
-	TaskQueryBuilder dueFrom(Date dueMin);
-	TaskQueryBuilder dueUntil(Date dueMax);
-	TaskQueryBuilder updatedFrom(Date updatedMin);
-	TaskQueryBuilder includeCompleted(boolean includeCompleted);
-	TaskQueryBuilder includeDeleted(boolean includeDeleted);
-	TaskQueryBuilder includeHidden(boolean includeHidden);
+    TaskQueryBuilder fromTaskList(String taskListId);
+
+    TaskQueryBuilder completedFrom(Date completedMin);
+
+    TaskQueryBuilder completedUntil(Date completedMax);
+
+    TaskQueryBuilder dueFrom(Date dueMin);
+
+    TaskQueryBuilder dueUntil(Date dueMax);
+
+    TaskQueryBuilder updatedFrom(Date updatedMin);
+
+    TaskQueryBuilder includeCompleted(boolean includeCompleted);
+
+    TaskQueryBuilder includeDeleted(boolean includeDeleted);
+
+    TaskQueryBuilder includeHidden(boolean includeHidden);
 }

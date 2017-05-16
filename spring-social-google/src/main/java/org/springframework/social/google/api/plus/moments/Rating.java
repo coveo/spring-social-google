@@ -19,43 +19,50 @@ import com.fasterxml.jackson.annotation.JsonGetter;
 
 /**
  * Review rating
- * 
+ *
  * @see <a href="http://schema.org/Rating">Rating</a>
  * @author Gabriel Axel
- * 
+ *
  */
-public class Rating {
+public class Rating
+{
 
-	private String ratingValue;
+    private String ratingValue;
 
-	private String bestRating;
+    private String bestRating;
 
-	private String worstRating;
+    private String worstRating;
 
-	protected Rating() {
-	}
+    protected Rating()
+    {
+    }
 
-	public Rating(String ratingValue, String bestRating, String worstRating) {
-		this.ratingValue = ratingValue;
-		this.bestRating = bestRating;
-		this.worstRating = worstRating;
-	}
+    public Rating(String ratingValue, String bestRating, String worstRating)
+    {
+        this.ratingValue = ratingValue;
+        this.bestRating = bestRating;
+        this.worstRating = worstRating;
+    }
 
-	@JsonGetter
-	protected String getType() {
-		return "http://schema.org/Rating";
-	}
+    @JsonGetter
+    protected String getType()
+    {
+        return "http://schema.org/Rating";
+    }
 
-	public String getRatingValue() {
-		return ratingValue;
-	}
+    public String getRatingValue()
+    {
+        return ratingValue;
+    }
 
-	public String getBestRating() {
-		return bestRating;
-	}
+    public String getBestRating()
+    {
+        return bestRating;
+    }
 
-	public String getWorstRating() {
-		return worstRating;
-	}
+    public String getWorstRating()
+    {
+        return worstRating;
+    }
 
 }

@@ -25,9 +25,10 @@ import com.fasterxml.jackson.databind.annotation.JsonSerialize;
  * Enum representing a task status (whether it is completed)
  * @author Gabriel Axel
  */
-@JsonSerialize(using=ApiEnumSerializer.class)
-@JsonDeserialize(using=TaskStatusDeserializer.class)
-public enum TaskStatus {
+@JsonSerialize(using = ApiEnumSerializer.class)
+@JsonDeserialize(using = TaskStatusDeserializer.class)
+public enum TaskStatus
+{
 
-	NEEDS_ACTION, COMPLETED
+    NEEDS_ACTION, COMPLETED
 }

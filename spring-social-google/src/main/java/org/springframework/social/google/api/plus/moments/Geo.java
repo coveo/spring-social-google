@@ -17,22 +17,25 @@ package org.springframework.social.google.api.plus.moments;
 
 /**
  * Geolocation coordinates
- * 
+ *
  * @author Gabriel Axel
- * 
+ *
  */
-public class Geo {
+public class Geo
+{
 
-	private float latitude;
+    private float latitude;
 
-	private float longitude;
+    private float longitude;
 
-	public float getLatitude() {
-		return latitude;
-	}
+    public float getLatitude()
+    {
+        return latitude;
+    }
 
-	public float getLongitude() {
-		return longitude;
-	}
+    public float getLongitude()
+    {
+        return longitude;
+    }
 
 }

@@ -15,27 +15,30 @@
  */
 package org.springframework.social.google.api.plus.moments;
 
-import static org.springframework.social.google.api.plus.moments.MomentTypes.CREATE_ACTIVITY;
+import static org.springframework.social.google.api.plus.moments.MomentTypes.*;
 
 import com.fasterxml.jackson.annotation.JsonTypeName;
 
 /**
  * Activity representing creation of creative work such as a photo, blog entry,
  * or microblog post
- * 
+ *
  * @see <a
  *      href="https://developers.google.com/+/api/moment-types/create-activity">Create
  *      Activity</a>
  * @author Gabriel Axel
- * 
+ *
  */
 @JsonTypeName(CREATE_ACTIVITY)
-public class CreateActivity extends Moment {
+public class CreateActivity extends Moment
+{
 
-	protected CreateActivity() {
-	}
+    protected CreateActivity()
+    {
+    }
 
-	public CreateActivity(String targetUrl) {
-		super(targetUrl);
-	}
+    public CreateActivity(String targetUrl)
+    {
+        super(targetUrl);
+    }
 }

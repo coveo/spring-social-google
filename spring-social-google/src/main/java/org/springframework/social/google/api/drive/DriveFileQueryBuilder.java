@@ -24,58 +24,59 @@ import org.springframework.social.google.api.query.QueryBuilder;
  * {@link QueryBuilder} for {@link DriveFile}
  * @author Gabriel Axel
  */
-public interface DriveFileQueryBuilder extends ApiQueryBuilder<DriveFileQueryBuilder, DriveFilesPage> {
+public interface DriveFileQueryBuilder extends ApiQueryBuilder<DriveFileQueryBuilder, DriveFilesPage>
+{
 
-	DriveFileQueryBuilder not();
+    DriveFileQueryBuilder not();
 
-	DriveFileQueryBuilder titleIs(String title);
+    DriveFileQueryBuilder titleIs(String title);
 
-	DriveFileQueryBuilder titleContains(String text);
+    DriveFileQueryBuilder titleContains(String text);
 
-	DriveFileQueryBuilder fullTextContains(String text);
+    DriveFileQueryBuilder fullTextContains(String text);
 
-	DriveFileQueryBuilder mimeTypeIs(String mimeType);
+    DriveFileQueryBuilder mimeTypeIs(String mimeType);
 
-	DriveFileQueryBuilder mimeTypeIsNot(String mimeType);
+    DriveFileQueryBuilder mimeTypeIsNot(String mimeType);
 
-	DriveFileQueryBuilder modifiedDateIs(Date date);
+    DriveFileQueryBuilder modifiedDateIs(Date date);
 
-	DriveFileQueryBuilder modifiedDateIsOrBefore(Date date);
+    DriveFileQueryBuilder modifiedDateIsOrBefore(Date date);
 
-	DriveFileQueryBuilder modifiedDateBefore(Date date);
+    DriveFileQueryBuilder modifiedDateBefore(Date date);
 
-	DriveFileQueryBuilder modifiedDateIsOrAfter(Date date);
+    DriveFileQueryBuilder modifiedDateIsOrAfter(Date date);
 
-	DriveFileQueryBuilder modifiedDateAfter(Date date);
+    DriveFileQueryBuilder modifiedDateAfter(Date date);
 
-	DriveFileQueryBuilder lastViewedByMeIs(Date date);
+    DriveFileQueryBuilder lastViewedByMeIs(Date date);
 
-	DriveFileQueryBuilder lastViewedByMeIsOrBefore(Date date);
+    DriveFileQueryBuilder lastViewedByMeIsOrBefore(Date date);
 
-	DriveFileQueryBuilder lastViewedByMeBefore(Date date);
+    DriveFileQueryBuilder lastViewedByMeBefore(Date date);
 
-	DriveFileQueryBuilder lastViewedByMeIsOrAfter(Date date);
+    DriveFileQueryBuilder lastViewedByMeIsOrAfter(Date date);
 
-	DriveFileQueryBuilder lastViewedByMeAfter(Date date);
+    DriveFileQueryBuilder lastViewedByMeAfter(Date date);
 
-	DriveFileQueryBuilder trashed(boolean trashed);
+    DriveFileQueryBuilder trashed(boolean trashed);
 
-	DriveFileQueryBuilder starred(boolean starred);
+    DriveFileQueryBuilder starred(boolean starred);
 
-	DriveFileQueryBuilder hidden(boolean hidden);
+    DriveFileQueryBuilder hidden(boolean hidden);
 
-	DriveFileQueryBuilder parentIs(String id);
+    DriveFileQueryBuilder parentIs(String id);
 
-	DriveFileQueryBuilder ownerIs(String email);
+    DriveFileQueryBuilder ownerIs(String email);
 
-	DriveFileQueryBuilder writerIs(String email);
+    DriveFileQueryBuilder writerIs(String email);
 
-	DriveFileQueryBuilder readerIs(String email);
+    DriveFileQueryBuilder readerIs(String email);
 
-	DriveFileQueryBuilder sharedWithMe();
+    DriveFileQueryBuilder sharedWithMe();
 
-	DriveFileQueryBuilder isFolder();
+    DriveFileQueryBuilder isFolder();
 
-	DriveFileQueryBuilder isFile();
+    DriveFileQueryBuilder isFile();
 
 }

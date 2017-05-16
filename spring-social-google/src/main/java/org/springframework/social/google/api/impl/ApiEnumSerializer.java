@@ -25,37 +25,40 @@ import com.fasterxml.jackson.databind.SerializerProvider;
 /**
  * Jackson {@link JsonSerializer} that converts an enum name to camel case
  * string.
- * 
+ *
  * @author Gabriel Axel
  */
-public class ApiEnumSerializer extends JsonSerializer<Enum<?>> {
+public class ApiEnumSerializer extends JsonSerializer<Enum<?>>
+{
 
-	public static String enumToString(Enum<?> value) {
+    public static String enumToString(Enum<?> value)
+    {
 
-		if(value == null) {
-			return null;
-		}
-		
-		String underscored = value.name();
+        if (value == null) {
+            return null;
+        }
 
-		StringBuilder sb = new StringBuilder();
-		for (int i = 0; i < underscored.length(); i++) {
-			char c = underscored.charAt(i);
-			if (c == '_') {
-				sb.append(Character.toUpperCase(underscored.charAt(++i)));
-			} else {
-				sb.append(Character.toLowerCase(c));
-			}
-		}
-		return sb.toString();
-	}
+        String underscored = value.name();
 
-	@Override
-	public void serialize(Enum<?> value, JsonGenerator jgen,
-			SerializerProvider provider) throws IOException,
-			JsonProcessingException {
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < underscored.length(); i++) {
+            char c = underscored.charAt(i);
+            if (c == '_') {
+                sb.append(Character.toUpperCase(underscored.charAt(++i)));
+            } else {
+                sb.append(Character.toLowerCase(c));
+            }
+        }
+        return sb.toString();
+    }
 
-		jgen.writeString(enumToString(value));
-	}
+    @Override
+    public void serialize(Enum<?> value, JsonGenerator jgen, SerializerProvider provider)
+            throws IOException,
+                JsonProcessingException
+    {
+
+        jgen.writeString(enumToString(value));
+    }
 
 }

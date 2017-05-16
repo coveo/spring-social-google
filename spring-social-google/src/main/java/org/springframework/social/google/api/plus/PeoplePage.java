@@ -21,15 +21,18 @@ import org.springframework.social.google.api.query.ApiPage;
 
 /**
  * {@link ApiPage} of {@link Person}.
- * 
+ *
  * @author Gabriel Axel
  */
-public class PeoplePage extends ApiPage<Person> {
+public class PeoplePage extends ApiPage<Person>
+{
 
-	public PeoplePage() {
-	}
+    public PeoplePage()
+    {
+    }
 
-	public PeoplePage(List<Person> items, String nextPageToken) {
-		super(items, nextPageToken);
-	}
+    public PeoplePage(List<Person> items, String nextPageToken)
+    {
+        super(items, nextPageToken);
+    }
 }

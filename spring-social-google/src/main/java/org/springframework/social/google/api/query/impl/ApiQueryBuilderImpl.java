@@ -31,42 +31,49 @@ import org.springframework.web.client.RestTemplate;
  * @param <Q> {@link QueryBuilder} type
  * @param <T> Model type
  */
-public class ApiQueryBuilderImpl<Q extends ApiQueryBuilder<?, T>, T extends ApiPage<?>> extends QueryBuilderImpl<Q, T> implements ApiQueryBuilder<Q, T> {
+public class ApiQueryBuilderImpl<Q extends ApiQueryBuilder<?, T>, T extends ApiPage<?>> extends QueryBuilderImpl<Q, T>
+        implements ApiQueryBuilder<Q, T>
+{
 
-	private final Class<T> type;
-	private final RestTemplate restTemplate;
+    private final Class<T> type;
+    private final RestTemplate restTemplate;
 
-	protected static String encode(String text) {
-		try {
-			return URLEncoder.encode(text, "UTF-8");
-		} catch (UnsupportedEncodingException e) {
-			throw new IllegalStateException(e);
-		}
-	}
-	
-	public ApiQueryBuilderImpl(Class<T> type, RestTemplate restTemplate) {
-		this.type = type;
-		this.restTemplate = restTemplate;
-	}
-	
-	public ApiQueryBuilderImpl(String feedUrl, Class<T> type, RestTemplate restTemplate) {
-		super(feedUrl);
-		this.type = type;
-		this.restTemplate = restTemplate;
-	}
-	
-	@Override
-	public Q fromPage(String pageToken) {
-		return appendQueryParam("pageToken", pageToken);
-	}
-	
-	@Override
-	public T getPage() {
-		try {
-			return restTemplate.getForObject(new URI(build().toString()), type);
-		} catch (URISyntaxException e) {
-			throw new IllegalStateException(e);
-		}
-	}
+    protected static String encode(String text)
+    {
+        try {
+            return URLEncoder.encode(text, "UTF-8");
+        } catch (UnsupportedEncodingException e) {
+            throw new IllegalStateException(e);
+        }
+    }
+
+    public ApiQueryBuilderImpl(Class<T> type, RestTemplate restTemplate)
+    {
+        this.type = type;
+        this.restTemplate = restTemplate;
+    }
+
+    public ApiQueryBuilderImpl(String feedUrl, Class<T> type, RestTemplate restTemplate)
+    {
+        super(feedUrl);
+        this.type = type;
+        this.restTemplate = restTemplate;
+    }
+
+    @Override
+    public Q fromPage(String pageToken)
+    {
+        return appendQueryParam("pageToken", pageToken);
+    }
+
+    @Override
+    public T getPage()
+    {
+        try {
+            return restTemplate.getForObject(new URI(build().toString()), type);
+        } catch (URISyntaxException e) {
+            throw new IllegalStateException(e);
+        }
+    }
 
 }

@@ -21,6 +21,7 @@ import org.springframework.social.google.api.query.ApiPage;
  * {@link ApiPage} of {@link DriveFile}
  * @author Gabriel Axel
  */
-public class DriveFilesPage extends ApiPage<DriveFile> {
+public class DriveFilesPage extends ApiPage<DriveFile>
+{
 
 }

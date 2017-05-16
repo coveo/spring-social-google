@@ -15,26 +15,29 @@
  */
 package org.springframework.social.google.api.plus.moments;
 
-import static org.springframework.social.google.api.plus.moments.MomentTypes.ADD_ACTIVITY;
+import static org.springframework.social.google.api.plus.moments.MomentTypes.*;
 
 import com.fasterxml.jackson.annotation.JsonTypeName;
 
 /**
  * Model class representing a generic fallback activity type.
- * 
+ *
  * @see <a
  *      href="https://developers.google.com/+/api/moment-types/add-activity">Add
  *      Activity</a>
  * @author Gabriel Axel
- * 
+ *
  */
 @JsonTypeName(ADD_ACTIVITY)
-public class AddActivity extends Moment {
+public class AddActivity extends Moment
+{
 
-	public AddActivity() {
-	}
+    public AddActivity()
+    {
+    }
 
-	public AddActivity(String targetUrl) {
-		super(targetUrl);
-	}
+    public AddActivity(String targetUrl)
+    {
+        super(targetUrl);
+    }
 }

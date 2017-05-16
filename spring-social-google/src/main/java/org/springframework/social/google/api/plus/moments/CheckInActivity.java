@@ -15,26 +15,29 @@
  */
 package org.springframework.social.google.api.plus.moments;
 
-import static org.springframework.social.google.api.plus.moments.MomentTypes.CHECK_IN_ACTIVITY;
+import static org.springframework.social.google.api.plus.moments.MomentTypes.*;
 
 import com.fasterxml.jackson.annotation.JsonTypeName;
 
 /**
  * Activity representing check in at a location
- * 
+ *
  * @see <a
  *      href="https://developers.google.com/+/api/moment-types/checkin-activity">Checkin
  *      Activity</a>
  * @author Gabriel Axel
- * 
+ *
  */
 @JsonTypeName(CHECK_IN_ACTIVITY)
-public class CheckInActivity extends Moment {
+public class CheckInActivity extends Moment
+{
 
-	protected CheckInActivity() {
-	}
+    protected CheckInActivity()
+    {
+    }
 
-	public CheckInActivity(String targetUrl) {
-		super(targetUrl);
-	}
+    public CheckInActivity(String targetUrl)
+    {
+        super(targetUrl);
+    }
 }

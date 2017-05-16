@@ -21,6 +21,7 @@ import org.springframework.social.google.api.query.ApiPage;
  * {@link ApiPage} of {@link FileComment}
  * @author Gabriel Axel
  */
-public class FileCommentsPage extends ApiPage<FileComment> {
+public class FileCommentsPage extends ApiPage<FileComment>
+{
 
 }
