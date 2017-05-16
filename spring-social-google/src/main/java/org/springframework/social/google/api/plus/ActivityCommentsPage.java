@@ -6,6 +6,7 @@ import org.springframework.social.google.api.query.ApiPage;
  * {@link ApiPage} for {@link ActivityComment} pagination result.
  * @author Gabriel Axel
  */
-public class ActivityCommentsPage extends ApiPage<ActivityComment> {
+public class ActivityCommentsPage extends ApiPage<ActivityComment>
+{
 
 }

@@ -20,13 +20,15 @@ import org.springframework.social.google.api.plus.UrlType;
 
 /**
  * {@link ApiEnumDeserializer} for {@link UrlType}
- * 
+ *
  * @author Gabriel Axel
  */
-public class UrlTypeDeserializer extends ApiEnumDeserializer<UrlType> {
+public class UrlTypeDeserializer extends ApiEnumDeserializer<UrlType>
+{
 
-	public UrlTypeDeserializer() {
-		super(UrlType.class);
-	}
+    public UrlTypeDeserializer()
+    {
+        super(UrlType.class);
+    }
 
 }

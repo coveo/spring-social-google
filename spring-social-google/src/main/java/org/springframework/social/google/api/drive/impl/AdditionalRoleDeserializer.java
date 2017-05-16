@@ -22,10 +22,12 @@ import org.springframework.social.google.api.impl.ApiEnumDeserializer;
  * {@link ApiEnumDeserializer} for {@link AdditionalRole}
  * @author Gabriel Axel
  */
-public class AdditionalRoleDeserializer extends ApiEnumDeserializer<AdditionalRole> {
+public class AdditionalRoleDeserializer extends ApiEnumDeserializer<AdditionalRole>
+{
 
-	public AdditionalRoleDeserializer() {
-		super(AdditionalRole.class);
-	}
+    public AdditionalRoleDeserializer()
+    {
+        super(AdditionalRole.class);
+    }
 
 }

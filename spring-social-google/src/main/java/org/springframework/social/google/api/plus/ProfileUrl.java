@@ -15,72 +15,79 @@
  */
 package org.springframework.social.google.api.plus;
 
-import static org.springframework.util.ObjectUtils.nullSafeEquals;
-import static org.springframework.util.ObjectUtils.nullSafeHashCode;
+import static org.springframework.util.ObjectUtils.*;
 
 /**
  * URL in a person's Google+ profile
  * @author Gabriel Axel
  *
  */
-public class ProfileUrl {
-	
-	private String value;
+public class ProfileUrl
+{
 
-	private String label;
-	
-	private UrlType type;
-	
-	ProfileUrl() {
-		
-	}
-	
-	ProfileUrl(String value, String label, UrlType type) {
-		this.value = value;
-		this.label = label;
-		this.type = type;
-	}
-	
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + nullSafeHashCode(value);
-		result = prime * result + nullSafeHashCode(label);
-		result = prime * result + nullSafeHashCode(type);
-		return result;
-	}
+    private String value;
 
-	@Override
-	public boolean equals(Object o) {
-		if (this == o) {
-			return true;
-		}
-		if(!(o instanceof ProfileUrl)) {
-			return false;
-		}
-		ProfileUrl other = (ProfileUrl)o;
-		return nullSafeEquals(value, other.value) &&
-				nullSafeEquals(label, other.label) &&
-				nullSafeEquals(type, other.type);
-				
-	}
-	
-	@Override
-	public String toString() {
-		return value;
-	}
+    private String label;
 
-	public String getValue() {
-		return value;
-	}
+    private UrlType type;
 
-	public String getLabel() {
-		return label;
-	}
+    ProfileUrl()
+    {
 
-	public UrlType getType() {
-		return type;
-	}
+    }
+
+    ProfileUrl(String value, String label, UrlType type)
+    {
+        this.value = value;
+        this.label = label;
+        this.type = type;
+    }
+
+    @Override
+    public int hashCode()
+    {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + nullSafeHashCode(value);
+        result = prime * result + nullSafeHashCode(label);
+        result = prime * result + nullSafeHashCode(type);
+        return result;
+    }
+
+    @Override
+    public boolean equals(Object o)
+    {
+        if (this == o) {
+            return true;
+        }
+        if (!(o instanceof ProfileUrl)) {
+            return false;
+        }
+        ProfileUrl other = (ProfileUrl) o;
+        return nullSafeEquals(value, other.value) && nullSafeEquals(label, other.label)
+                && nullSafeEquals(type, other.type);
+
+    }
+
+    @Override
+    public String toString()
+    {
+        return value;
+    }
+
+    public String getValue()
+    {
+        return value;
+    }
+
+    public String getLabel()
+    {
+        return label;
+    }
+
+    public UrlType getType()
+    {
+        return type;
+    }
 
 }

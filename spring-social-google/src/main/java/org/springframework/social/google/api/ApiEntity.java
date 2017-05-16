@@ -15,31 +15,36 @@
  */
 package org.springframework.social.google.api;
 
-import static org.springframework.util.StringUtils.hasText;
+import static org.springframework.util.StringUtils.*;
 
 /**
  * Abstract superclass for API-specific entities
  * @author Gabriel Axel
  */
-public abstract class ApiEntity {
+public abstract class ApiEntity
+{
 
-	private String id;
-	
-	private String etag;
+    private String id;
 
-	protected ApiEntity() {
-	}
-	
-	protected ApiEntity(String id) {
-		this.id = hasText(id) ? id : null;
-	}
+    private String etag;
 
-	public String getId() {
-		return id;
-	}
-	
-	public String getEtag() {
-		return etag;
-	}
-	
+    protected ApiEntity()
+    {
+    }
+
+    protected ApiEntity(String id)
+    {
+        this.id = hasText(id) ? id : null;
+    }
+
+    public String getId()
+    {
+        return id;
+    }
+
+    public String getEtag()
+    {
+        return etag;
+    }
+
 }

@@ -15,26 +15,29 @@
  */
 package org.springframework.social.google.api.plus.moments;
 
-import static org.springframework.social.google.api.plus.moments.MomentTypes.BUY_ACTIVITY;
+import static org.springframework.social.google.api.plus.moments.MomentTypes.*;
 
 import com.fasterxml.jackson.annotation.JsonTypeName;
 
 /**
  * Activity representing a purchase.
- * 
+ *
  * @see <a
  *      href="https://developers.google.com/+/api/moment-types/buy-activity">Buy
  *      Activity</a>
  * @author Gabriel Axel
- * 
+ *
  */
 @JsonTypeName(BUY_ACTIVITY)
-public class BuyActivity extends Moment {
+public class BuyActivity extends Moment
+{
 
-	protected BuyActivity() {
-	}
+    protected BuyActivity()
+    {
+    }
 
-	public BuyActivity(String targetUrl) {
-		super(targetUrl);
-	}
+    public BuyActivity(String targetUrl)
+    {
+        super(targetUrl);
+    }
 }

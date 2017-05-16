@@ -21,6 +21,7 @@ package org.springframework.social.google.api.query;
  * @param <Q> {@link QueryBuilder} type
  * @param <T> Model type
  */
-public interface QueryBuilder<Q extends QueryBuilder<?, T>, T> {
-	Q maxResultsNumber(int maxResults);
+public interface QueryBuilder<Q extends QueryBuilder<?, T>, T>
+{
+    Q maxResultsNumber(int maxResults);
 }

@@ -15,7 +15,7 @@
  */
 package org.springframework.social.google.api.plus.moments;
 
-import static com.fasterxml.jackson.annotation.JsonFormat.Shape.STRING;
+import static com.fasterxml.jackson.annotation.JsonFormat.Shape.*;
 
 import java.util.Date;
 
@@ -31,39 +31,43 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo.Id;
 
 /**
  * Abstract superclass for specific activity types.
- * 
+ *
  * @see <a href="https://developers.google.com/+/api/moment-types/">Moment
  *      Types</a>
  * @author Gabriel Axel
- * 
+ *
  */
 @JsonTypeInfo(property = "type", include = As.PROPERTY, use = Id.NAME)
-@JsonSubTypes({ @Type(AddActivity.class), @Type(BuyActivity.class),
-		@Type(CheckInActivity.class), @Type(CommentActivity.class),
-		@Type(CreateActivity.class), @Type(DiscoverActivity.class),
-		@Type(ListenActivity.class), @Type(ReserveActivity.class),
-		@Type(ReviewActivity.class), @Type(WantActivity.class) })
-public abstract class Moment extends ApiEntity {
+@JsonSubTypes({ @Type(AddActivity.class), @Type(BuyActivity.class), @Type(CheckInActivity.class),
+                @Type(CommentActivity.class), @Type(CreateActivity.class), @Type(DiscoverActivity.class),
+                @Type(ListenActivity.class), @Type(ReserveActivity.class), @Type(ReviewActivity.class),
+                @Type(WantActivity.class) })
+public abstract class Moment extends ApiEntity
+{
 
-	@JsonProperty
-	private MomentTarget target;
+    @JsonProperty
+    private MomentTarget target;
 
-	@JsonFormat(shape = STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'", timezone = "UTC")
-	private Date startDate;
+    @JsonFormat(shape = STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'", timezone = "UTC")
+    private Date startDate;
 
-	public Moment() {
-	}
+    public Moment()
+    {
+    }
 
-	public Moment(String targetUrl) {
-		target = new MomentTarget(targetUrl);
-	}
+    public Moment(String targetUrl)
+    {
+        target = new MomentTarget(targetUrl);
+    }
 
-	public MomentTarget getTarget() {
-		return target;
-	}
+    public MomentTarget getTarget()
+    {
+        return target;
+    }
 
-	public Date getStartDate() {
-		return startDate;
-	}
+    public Date getStartDate()
+    {
+        return startDate;
+    }
 
 }

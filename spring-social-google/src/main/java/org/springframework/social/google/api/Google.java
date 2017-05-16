@@ -24,54 +24,55 @@ import org.springframework.social.google.api.tasks.TaskOperations;
 /**
  * Interface specifying a basic set of operations for interacting with Google
  * APIs. Implemented by {@link GoogleTemplate}.
- * 
+ *
  * @author Gabriel Axel
  */
-public interface Google extends ApiBinding {
+public interface Google extends ApiBinding
+{
 
-	/**
-	 * Retrieves {@link PlusOperations}, used for interacting with Google+ API.
-	 * Some methods require OAuth2 scope https://www.googleapis.com/auth/plus.me
-	 * 
-	 * @return {@link PlusOperations} for the authenticated user if
-	 *         authenticated
-	 */
-	PlusOperations plusOperations();
+    /**
+     * Retrieves {@link PlusOperations}, used for interacting with Google+ API.
+     * Some methods require OAuth2 scope https://www.googleapis.com/auth/plus.me
+     *
+     * @return {@link PlusOperations} for the authenticated user if
+     *         authenticated
+     */
+    PlusOperations plusOperations();
 
-	/**
-	 * Retrieves {@link TaskOperations}, used for interacting with Google Tasks
-	 * API. Requires OAuth scope https://www.googleapis.com/auth/tasks or
-	 * https://www.googleapis.com/auth/tasks.readonly
-	 * 
-	 * @return {@link TaskOperations} for the authenticated user
-	 */
-	TaskOperations taskOperations();
+    /**
+     * Retrieves {@link TaskOperations}, used for interacting with Google Tasks
+     * API. Requires OAuth scope https://www.googleapis.com/auth/tasks or
+     * https://www.googleapis.com/auth/tasks.readonly
+     *
+     * @return {@link TaskOperations} for the authenticated user
+     */
+    TaskOperations taskOperations();
 
-	/**
-	 * Retrieves {@link DriveOperations}, used for interacting with Google Drive
-	 * API. Requires OAuth scope(s) from the following:
-	 * <ul>
-	 * <li>https://www.googleapis.com/auth/drive.file</li>
-	 * <li>https://www.googleapis.com/auth/drive</li>
-	 * <li>https://www.googleapis.com/auth/drive.apps.readonly</li>
-	 * <li>https://www.googleapis.com/auth/drive.readonly</li>
-	 * <li>https://www.googleapis.com/auth/drive.readonly.metadata</li>
-	 * </ul>
-	 * See <a
-	 * href="https://developers.google.com/drive/scopes">https://developers
-	 * .google.com/drive/scopes</a> for details about the different scopes
-	 * 
-	 * @return {@link DriveOperations} for the authenticated user
-	 */
-	DriveOperations driveOperations();
+    /**
+     * Retrieves {@link DriveOperations}, used for interacting with Google Drive
+     * API. Requires OAuth scope(s) from the following:
+     * <ul>
+     * <li>https://www.googleapis.com/auth/drive.file</li>
+     * <li>https://www.googleapis.com/auth/drive</li>
+     * <li>https://www.googleapis.com/auth/drive.apps.readonly</li>
+     * <li>https://www.googleapis.com/auth/drive.readonly</li>
+     * <li>https://www.googleapis.com/auth/drive.readonly.metadata</li>
+     * </ul>
+     * See <a
+     * href="https://developers.google.com/drive/scopes">https://developers
+     * .google.com/drive/scopes</a> for details about the different scopes
+     *
+     * @return {@link DriveOperations} for the authenticated user
+     */
+    DriveOperations driveOperations();
 
-	/**
-	 * Returns the access token, allowing interoperability with other libraries
-	 * 
-	 * @see <a href="http://code.google.com/p/google-api-java-client/">Google
-	 *      APIs Client Library for Java</a>
-	 * 
-	 * @return The OAuth2 access token
-	 */
-	String getAccessToken();
+    /**
+     * Returns the access token, allowing interoperability with other libraries
+     *
+     * @see <a href="http://code.google.com/p/google-api-java-client/">Google
+     *      APIs Client Library for Java</a>
+     *
+     * @return The OAuth2 access token
+     */
+    String getAccessToken();
 }

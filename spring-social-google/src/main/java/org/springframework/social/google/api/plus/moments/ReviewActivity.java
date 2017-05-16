@@ -15,7 +15,7 @@
  */
 package org.springframework.social.google.api.plus.moments;
 
-import static org.springframework.social.google.api.plus.moments.MomentTypes.REVIEW_ACTIVITY;
+import static org.springframework.social.google.api.plus.moments.MomentTypes.*;
 
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -25,74 +25,83 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 /**
  * Activity representing a submission of a review, such as a review of a
  * product, creative work, restaurant or other service
- * 
+ *
  * @see <a
  *      href="https://developers.google.com/+/api/moment-types/review-activity">Review
  *      Activity</a>
  * @author Gabriel Axel
- * 
+ *
  */
 @JsonTypeName(REVIEW_ACTIVITY)
-public class ReviewActivity extends Moment {
+public class ReviewActivity extends Moment
+{
 
-	protected static class Result {
+    protected static class Result
+    {
 
-		@JsonProperty
-		String url;
+        @JsonProperty
+        String url;
 
-		@JsonProperty
-		String text;
+        @JsonProperty
+        String text;
 
-		@JsonProperty
-		String name;
+        @JsonProperty
+        String name;
 
-		@JsonProperty
-		Rating reviewRating;
+        @JsonProperty
+        Rating reviewRating;
 
-		@JsonGetter
-		String getType() {
-			return "http://schema.org/Review";
-		}
+        @JsonGetter
+        String getType()
+        {
+            return "http://schema.org/Review";
+        }
 
-	}
+    }
 
-	@JsonProperty
-	private Result result;
+    @JsonProperty
+    private Result result;
 
-	protected ReviewActivity() {
-	}
+    protected ReviewActivity()
+    {
+    }
 
-	public ReviewActivity(String targetUrl, String url, String text) {
-		super(targetUrl);
-		result = new Result();
-		result.url = url;
-		result.text = text;
-	}
+    public ReviewActivity(String targetUrl, String url, String text)
+    {
+        super(targetUrl);
+        result = new Result();
+        result.url = url;
+        result.text = text;
+    }
 
-	public ReviewActivity(String targetUrl, String url, String text,
-			String name, Rating reviewRating) {
-		this(targetUrl, url, text);
-		result.name = name;
-		result.reviewRating = reviewRating;
-	}
+    public ReviewActivity(String targetUrl, String url, String text, String name, Rating reviewRating)
+    {
+        this(targetUrl, url, text);
+        result.name = name;
+        result.reviewRating = reviewRating;
+    }
 
-	@JsonIgnore
-	public String getResultUrl() {
-		return result.url;
-	}
+    @JsonIgnore
+    public String getResultUrl()
+    {
+        return result.url;
+    }
 
-	@JsonIgnore
-	public String getResultText() {
-		return result.text;
-	}
+    @JsonIgnore
+    public String getResultText()
+    {
+        return result.text;
+    }
 
-	@JsonIgnore
-	public String getResultName() {
-		return result.name;
-	}
+    @JsonIgnore
+    public String getResultName()
+    {
+        return result.name;
+    }
 
-	@JsonIgnore
-	public Rating getReviewRating() {
-		return result.reviewRating;
-	}
+    @JsonIgnore
+    public Rating getReviewRating()
+    {
+        return result.reviewRating;
+    }
 }

@@ -15,9 +15,9 @@
  */
 package org.springframework.social.google.api.impl;
 
-import static java.lang.System.arraycopy;
-import static org.springframework.social.google.api.impl.ApiEnumSerializer.enumToString;
-import static org.springframework.util.StringUtils.delimitedListToStringArray;
+import static java.lang.System.*;
+import static org.springframework.social.google.api.impl.ApiEnumSerializer.*;
+import static org.springframework.util.StringUtils.*;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -45,67 +45,73 @@ import java.util.Map;
  * @author Gabriel Axel
  *
  */
-public class PatchBuilder {
+public class PatchBuilder
+{
 
-	public static final String PATH_DELIMITER = ".";
-	
-	private Map<String, Object> map = new HashMap<String, Object>();
-	
-	private Map<String, Object> getNode(Map<String, Object> map, String[] path) {
-		if(path.length == 0) {
-			return map;
-		}
-		String[] innerPath = new String[path.length-1];
-		arraycopy(path, 1, innerPath, 0, innerPath.length);
-		@SuppressWarnings("unchecked")
-		Map<String, Object> innerMap = (Map<String, Object>)map.get(path[0]);
-		if(innerMap == null) {
-			innerMap = new HashMap<String, Object>();
-			map.put(path[0], innerMap);
-		}
-		return getNode(innerMap, innerPath);
-	}
-	
-	/**
-	 * Adds a property and a value to be set in the PATCH request
-	 * @param path the path representing the property, with "." representing nested properties
-	 * @param value the value to be set for the property
-	 * @return the {@link PatchBuilder} instance
-	 */
-	public PatchBuilder set(String path, Object value) {
-		String[] pathTokens = delimitedListToStringArray(path, PATH_DELIMITER);
-		String[] parentPathTokens = new String[pathTokens.length-1];
-		arraycopy(pathTokens, 0, parentPathTokens, 0, parentPathTokens.length);
-		Map<String, Object> parentNode = getNode(map, parentPathTokens);
-		parentNode.put(pathTokens[pathTokens.length-1], value);
-		return this;
-	}
-	
-	/**
-	 * Adds a property and a value to be set in the PATCH request
-	 * @param path the path representing the property, with "." representing nested properties
-	 * @param value the value to be set for the property
-	 * @return the {@link PatchBuilder} instance
-	 */
-	public PatchBuilder set(String path, Enum<?> value) {
-		return set(path, enumToString(value));
-	}
-	
-	/**
-	 * Defines a property to be deleted by setting its value to null.
-	 * Equivalent to invoking {@link PatchBuilder#set(String, Object)} with null value
-	 * @param path the path representing the property, with "." representing nested properties
-	 * @return the {@link PatchBuilder} instance
-	 */
-	public PatchBuilder delete(String path) {
-		return set(path, null);
-	}
-	
-	/**
-	 * Returns the map created so far
-	 * @return Map with the set properties
-	 */
-	public Map<String, Object> getMap() {
-		return map;
-	}
+    public static final String PATH_DELIMITER = ".";
+
+    private Map<String, Object> map = new HashMap<>();
+
+    private Map<String, Object> getNode(Map<String, Object> map, String[] path)
+    {
+        if (path.length == 0) {
+            return map;
+        }
+        String[] innerPath = new String[path.length - 1];
+        arraycopy(path, 1, innerPath, 0, innerPath.length);
+        @SuppressWarnings("unchecked")
+        Map<String, Object> innerMap = (Map<String, Object>) map.get(path[0]);
+        if (innerMap == null) {
+            innerMap = new HashMap<>();
+            map.put(path[0], innerMap);
+        }
+        return getNode(innerMap, innerPath);
+    }
+
+    /**
+     * Adds a property and a value to be set in the PATCH request
+     * @param path the path representing the property, with "." representing nested properties
+     * @param value the value to be set for the property
+     * @return the {@link PatchBuilder} instance
+     */
+    public PatchBuilder set(String path, Object value)
+    {
+        String[] pathTokens = delimitedListToStringArray(path, PATH_DELIMITER);
+        String[] parentPathTokens = new String[pathTokens.length - 1];
+        arraycopy(pathTokens, 0, parentPathTokens, 0, parentPathTokens.length);
+        Map<String, Object> parentNode = getNode(map, parentPathTokens);
+        parentNode.put(pathTokens[pathTokens.length - 1], value);
+        return this;
+    }
+
+    /**
+     * Adds a property and a value to be set in the PATCH request
+     * @param path the path representing the property, with "." representing nested properties
+     * @param value the value to be set for the property
+     * @return the {@link PatchBuilder} instance
+     */
+    public PatchBuilder set(String path, Enum<?> value)
+    {
+        return set(path, enumToString(value));
+    }
+
+    /**
+     * Defines a property to be deleted by setting its value to null.
+     * Equivalent to invoking {@link PatchBuilder#set(String, Object)} with null value
+     * @param path the path representing the property, with "." representing nested properties
+     * @return the {@link PatchBuilder} instance
+     */
+    public PatchBuilder delete(String path)
+    {
+        return set(path, null);
+    }
+
+    /**
+     * Returns the map created so far
+     * @return Map with the set properties
+     */
+    public Map<String, Object> getMap()
+    {
+        return map;
+    }
 }

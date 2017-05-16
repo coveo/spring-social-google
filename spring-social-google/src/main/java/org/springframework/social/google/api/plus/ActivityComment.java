@@ -8,40 +8,46 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
  * Model class representing a comment.
- * 
+ *
  * @author Gabriel Axel
  */
-public class ActivityComment extends ApiEntity {
+public class ActivityComment extends ApiEntity
+{
 
-	public static class CommentObject {
+    public static class CommentObject
+    {
 
-		@JsonProperty
-		private String content;
-	}
+        @JsonProperty
+        private String content;
+    }
 
-	private Date published;
-	
-	private Date updated;
-	
-	@JsonProperty
-	private CommentObject object;
-	
-	private Person actor;
+    private Date published;
 
-	public Date getPublished() {
-		return published;
-	}
+    private Date updated;
 
-	public Date getUpdated() {
-		return updated;
-	}
+    @JsonProperty
+    private CommentObject object;
 
-	public String getContent() {
-		return object != null ? object.content : null;
-	}
+    private Person actor;
 
-	public Person getActor() {
-		return actor;
-	}
+    public Date getPublished()
+    {
+        return published;
+    }
+
+    public Date getUpdated()
+    {
+        return updated;
+    }
+
+    public String getContent()
+    {
+        return object != null ? object.content : null;
+    }
+
+    public Person getActor()
+    {
+        return actor;
+    }
 
 }

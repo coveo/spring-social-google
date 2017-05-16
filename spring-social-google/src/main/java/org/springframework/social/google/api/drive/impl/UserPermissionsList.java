@@ -22,6 +22,7 @@ import org.springframework.social.google.api.query.ApiList;
  * {@link ApiList} of {@link UserPermission}
  * @author Gabriel Axel
  */
-class UserPermissionsList extends ApiList<UserPermission> {
+class UserPermissionsList extends ApiList<UserPermission>
+{
 
 }

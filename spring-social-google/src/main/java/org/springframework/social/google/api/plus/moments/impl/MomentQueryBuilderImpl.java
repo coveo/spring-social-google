@@ -22,15 +22,16 @@ import org.springframework.web.client.RestTemplate;
 
 /**
  * {@link MomentQueryBuilder} implementation.
- * 
+ *
  * @author Gabriel Axel
  */
-public class MomentQueryBuilderImpl extends
-		ApiQueryBuilderImpl<MomentQueryBuilder, MomentsPage> implements
-		MomentQueryBuilder {
+public class MomentQueryBuilderImpl extends ApiQueryBuilderImpl<MomentQueryBuilder, MomentsPage>
+        implements MomentQueryBuilder
+{
 
-	public MomentQueryBuilderImpl(String feedUrl, RestTemplate restTemplate) {
-		super(feedUrl, MomentsPage.class, restTemplate);
-	}
+    public MomentQueryBuilderImpl(String feedUrl, RestTemplate restTemplate)
+    {
+        super(feedUrl, MomentsPage.class, restTemplate);
+    }
 
 }

@@ -25,46 +25,53 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * Model class representing a user permission to a file in Google Drive
  * @author Gabriel Axel
  */
-public class UserPermission extends ApiEntity {
+public class UserPermission extends ApiEntity
+{
 
-	private String name;
-	
-	private PermissionRole role;
-	
-	private PermissionType type;
-	
-	private List<AdditionalRole> additionalRoles;
-	
-	/**
-	 * This field is write-only
-	 */
-	@JsonProperty
-	private String value;
-	
-	public UserPermission() {
-	}
+    private String name;
 
-	public UserPermission(PermissionRole role, PermissionType type, List<AdditionalRole> additionalRoles, String value) {
-		this.role = role;
-		this.type = type;
-		this.additionalRoles = additionalRoles;
-		this.value = value;
-	}
+    private PermissionRole role;
 
-	public String getName() {
-		return name;
-	}
+    private PermissionType type;
 
-	public PermissionRole getRole() {
-		return role;
-	}
+    private List<AdditionalRole> additionalRoles;
 
-	public PermissionType getType() {
-		return type;
-	}
+    /**
+     * This field is write-only
+     */
+    @JsonProperty
+    private String value;
 
-	public List<AdditionalRole> getAdditionalRoles() {
-		return additionalRoles;
-	}
-	
+    public UserPermission()
+    {
+    }
+
+    public UserPermission(PermissionRole role, PermissionType type, List<AdditionalRole> additionalRoles, String value)
+    {
+        this.role = role;
+        this.type = type;
+        this.additionalRoles = additionalRoles;
+        this.value = value;
+    }
+
+    public String getName()
+    {
+        return name;
+    }
+
+    public PermissionRole getRole()
+    {
+        return role;
+    }
+
+    public PermissionType getType()
+    {
+        return type;
+    }
+
+    public List<AdditionalRole> getAdditionalRoles()
+    {
+        return additionalRoles;
+    }
+
 }

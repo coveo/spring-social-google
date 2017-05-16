@@ -29,180 +29,205 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 
 /**
  * Model class representing a full Google profile
- * 
+ *
  * @author Gabriel Axel
  */
-public class Person extends ApiEntity {
+public class Person extends ApiEntity
+{
 
-	private static class Name {
+    private static class Name
+    {
 
-		@JsonProperty
-		private String givenName;
+        @JsonProperty
+        private String givenName;
 
-		@JsonProperty
-		private String familyName;
-	}
+        @JsonProperty
+        private String familyName;
+    }
 
-	public static class Image {
+    public static class Image
+    {
 
-		@JsonProperty
-		private String url;
-	}
+        @JsonProperty
+        private String url;
+    }
 
-	private static class PlaceLived {
+    private static class PlaceLived
+    {
 
-		@JsonProperty
-		private String value;
+        @JsonProperty
+        private String value;
 
-		@JsonProperty
-		private boolean primary;
-	}
+        @JsonProperty
+        private boolean primary;
+    }
 
-	private static class Email {
+    private static class Email
+    {
 
-		@JsonProperty
-		private String value;
+        @JsonProperty
+        private String value;
 
-		@JsonProperty
-		private String type;
-	}
+        @JsonProperty
+        private String type;
+    }
 
-	@JsonProperty
-	private Name name;
+    @JsonProperty
+    private Name name;
 
-	private String displayName;
+    private String displayName;
 
-	private String url;
-	
-	@JsonProperty("isPlusUser")
-	private boolean plusUser;
+    private String url;
 
-	@JsonProperty
-	private Image image;
+    @JsonProperty("isPlusUser")
+    private boolean plusUser;
 
-	private String thumbnailUrl;
+    @JsonProperty
+    private Image image;
 
-	private Date birthday;
+    private String thumbnailUrl;
 
-	private String gender;
+    private Date birthday;
 
-	private String occupation;
+    private String gender;
 
-	private String aboutMe;
+    private String occupation;
 
-	private String relationshipStatus;
+    private String aboutMe;
 
-	private List<ProfileUrl> urls;
+    private String relationshipStatus;
 
-	private List<Organization> organizations;
+    private List<ProfileUrl> urls;
 
-	private Map<String, Boolean> placesLived;
+    private List<Organization> organizations;
 
-	private Map<String, String> emails;
+    private Map<String, Boolean> placesLived;
 
-	@Override
-	public String toString() {
-		return displayName;
-	}
+    private Map<String, String> emails;
 
-	@JsonSetter
-	private void setPlacesLived(List<PlaceLived> placesLivedAsList) {
-		placesLived = new LinkedHashMap<String, Boolean>();
-		if (placesLivedAsList != null) {
-			for (PlaceLived placeLived : placesLivedAsList) {
-				placesLived.put(placeLived.value, placeLived.primary);
-			}
-		}
-	}
+    @Override
+    public String toString()
+    {
+        return displayName;
+    }
 
-	@JsonSetter
-	private void setEmails(List<Email> emailsAsList) {
-		emails = new LinkedHashMap<String, String>();
-		if (emailsAsList != null) {
-			for (Email email : emailsAsList) {
-				emails.put(email.value, email.type);
-			}
-		}
-	}
+    @JsonSetter
+    private void setPlacesLived(List<PlaceLived> placesLivedAsList)
+    {
+        placesLived = new LinkedHashMap<>();
+        if (placesLivedAsList != null) {
+            for (PlaceLived placeLived : placesLivedAsList) {
+                placesLived.put(placeLived.value, placeLived.primary);
+            }
+        }
+    }
 
-	public String getGivenName() {
-		return name == null ? null : name.givenName;
-	}
+    @JsonSetter
+    private void setEmails(List<Email> emailsAsList)
+    {
+        emails = new LinkedHashMap<>();
+        if (emailsAsList != null) {
+            for (Email email : emailsAsList) {
+                emails.put(email.value, email.type);
+            }
+        }
+    }
 
-	public String getFamilyName() {
-		return name == null ? null : name.familyName;
-	}
+    public String getGivenName()
+    {
+        return name == null ? null : name.givenName;
+    }
 
-	public String getDisplayName() {
-		return displayName;
-	}
+    public String getFamilyName()
+    {
+        return name == null ? null : name.familyName;
+    }
 
-	public String getUrl() {
-		return url;
-	}
-	
-	public boolean isPlusUser() {
-		return plusUser;
-	}
+    public String getDisplayName()
+    {
+        return displayName;
+    }
 
-	public String getImageUrl() {
-		if (thumbnailUrl != null) {
-			return thumbnailUrl;
-		}
-		if (image != null) {
-			return image.url;
-		}
-		return null;
-	}
+    public String getUrl()
+    {
+        return url;
+    }
 
-	public Date getBirthday() {
-		return birthday;
-	}
+    public boolean isPlusUser()
+    {
+        return plusUser;
+    }
 
-	public String getGender() {
-		return gender;
-	}
+    public String getImageUrl()
+    {
+        if (thumbnailUrl != null) {
+            return thumbnailUrl;
+        }
+        if (image != null) {
+            return image.url;
+        }
+        return null;
+    }
 
-	public String getOccupation() {
-		return occupation;
-	}
+    public Date getBirthday()
+    {
+        return birthday;
+    }
 
-	public String getAboutMe() {
-		return aboutMe;
-	}
+    public String getGender()
+    {
+        return gender;
+    }
 
-	public String getRelationshipStatus() {
-		return relationshipStatus;
-	}
+    public String getOccupation()
+    {
+        return occupation;
+    }
 
-	public List<ProfileUrl> getUrls() {
-		return urls;
-	}
+    public String getAboutMe()
+    {
+        return aboutMe;
+    }
 
-	public List<Organization> getOrganizations() {
-		return organizations;
-	}
+    public String getRelationshipStatus()
+    {
+        return relationshipStatus;
+    }
 
-	public Map<String, Boolean> getPlacesLived() {
-		return placesLived;
-	}
+    public List<ProfileUrl> getUrls()
+    {
+        return urls;
+    }
 
-	public Map<String, String> getEmails() {
-		return emails;
-	}
+    public List<Organization> getOrganizations()
+    {
+        return organizations;
+    }
 
-	public Set<String> getEmailAddresses() {
-		return emails == null ? null : emails.keySet();
-	}
+    public Map<String, Boolean> getPlacesLived()
+    {
+        return placesLived;
+    }
 
-	public String getAccountEmail() {
-		if (emails != null) {
-			for (Entry<String, String> entry : emails.entrySet()) {
-				if (entry.getValue().equals("account")) {
-					return entry.getKey();
-				}
-			}
-		}
-		return null;
-	}
+    public Map<String, String> getEmails()
+    {
+        return emails;
+    }
+
+    public Set<String> getEmailAddresses()
+    {
+        return emails == null ? null : emails.keySet();
+    }
+
+    public String getAccountEmail()
+    {
+        if (emails != null) {
+            for (Entry<String, String> entry : emails.entrySet()) {
+                if (entry.getValue().equals("account")) {
+                    return entry.getKey();
+                }
+            }
+        }
+        return null;
+    }
 }

@@ -23,6 +23,7 @@ import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
 @JsonSerialize(using = ApiEnumSerializer.class)
 @JsonDeserialize(using = UrlTypeDeserializer.class)
-public enum UrlType {
-	HOME, WORK, BLOG, PROFILE, OTHER, OTHER_PROFILE, CONTRIBUTOR
+public enum UrlType
+{
+    HOME, WORK, BLOG, PROFILE, OTHER, OTHER_PROFILE, CONTRIBUTOR
 }

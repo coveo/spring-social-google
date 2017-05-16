@@ -15,7 +15,7 @@
  */
 package org.springframework.social.google.api.tasks.impl;
 
-import static org.springframework.social.google.api.tasks.impl.TaskTemplate.TASK_LISTS_URL;
+import static org.springframework.social.google.api.tasks.impl.TaskTemplate.*;
 
 import org.springframework.social.google.api.query.impl.ApiQueryBuilderImpl;
 import org.springframework.social.google.api.tasks.TaskListQueryBuilder;
@@ -26,11 +26,13 @@ import org.springframework.web.client.RestTemplate;
  * {@link TaskListQueryBuilder} implementation.
  * @author Gabriel Axel
  */
-class TaskListQueryBuilderImpl extends ApiQueryBuilderImpl<TaskListQueryBuilder, TaskListsPage> implements
-		TaskListQueryBuilder {
+class TaskListQueryBuilderImpl extends ApiQueryBuilderImpl<TaskListQueryBuilder, TaskListsPage>
+        implements TaskListQueryBuilder
+{
 
-	public TaskListQueryBuilderImpl(RestTemplate restTemplate) {
-		super(TASK_LISTS_URL, TaskListsPage.class, restTemplate);
-	}
+    public TaskListQueryBuilderImpl(RestTemplate restTemplate)
+    {
+        super(TASK_LISTS_URL, TaskListsPage.class, restTemplate);
+    }
 
 }

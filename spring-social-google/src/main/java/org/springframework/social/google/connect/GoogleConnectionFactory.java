@@ -34,14 +34,14 @@ public class GoogleConnectionFactory extends OAuth2ConnectionFactory<Google>
     {
         super("google",
               new GoogleServiceProvider(clientId, clientSecret, clientHttpRequestFactory),
-              new GoogleAdapter());
-    }
+				new GoogleAdapter());
+	}
 
-    @Override
+	@Override
     protected String extractProviderUserId(AccessGrant accessGrant)
     {
-        Google api = ((GoogleServiceProvider) getServiceProvider()).getApi(accessGrant.getAccessToken());
-        UserProfile userProfile = getApiAdapter().fetchUserProfile(api);
-        return userProfile.getUsername();
-    }
+		Google api = ((GoogleServiceProvider)getServiceProvider()).getApi(accessGrant.getAccessToken());
+	    UserProfile userProfile = getApiAdapter().fetchUserProfile(api);
+	    return userProfile.getUsername();
+	}
 }

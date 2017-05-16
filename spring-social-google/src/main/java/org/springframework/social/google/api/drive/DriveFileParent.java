@@ -21,26 +21,31 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * Model class representing a file's parent in Google Drive
  * @author Gabriel Axel
  */
-public class DriveFileParent {
+public class DriveFileParent
+{
 
-	private String id;
-	
-	@JsonProperty("isRoot")
-	private boolean root;
+    private String id;
 
-	public DriveFileParent() {
-	}
-	
-	DriveFileParent(String id) {
-		this.id = id;
-	}
-	
-	public String getId() {
-		return id;
-	}
+    @JsonProperty("isRoot")
+    private boolean root;
 
-	public boolean isRoot() {
-		return root;
-	}
-	
+    public DriveFileParent()
+    {
+    }
+
+    DriveFileParent(String id)
+    {
+        this.id = id;
+    }
+
+    public String getId()
+    {
+        return id;
+    }
+
+    public boolean isRoot()
+    {
+        return root;
+    }
+
 }

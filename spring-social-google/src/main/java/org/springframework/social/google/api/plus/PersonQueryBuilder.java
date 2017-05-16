@@ -22,6 +22,7 @@ import org.springframework.social.google.api.query.QueryBuilder;
  * {@link QueryBuilder} for {@link Person}.
  * @author Gabriel Axel
  */
-public interface PersonQueryBuilder extends ApiQueryBuilder<PersonQueryBuilder, PeoplePage> {
-	PersonQueryBuilder searchFor(String text);
+public interface PersonQueryBuilder extends ApiQueryBuilder<PersonQueryBuilder, PeoplePage>
+{
+    PersonQueryBuilder searchFor(String text);
 }

@@ -25,67 +25,79 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * Model class representing a reply to comment in a file in Google Drive
  * @author Gabriel Axel
  */
-public class CommentReply extends ApiEntity {
+public class CommentReply extends ApiEntity
+{
 
-	private Date createdDate;
-	
-	private Date modifiedDate;
-	
-	private DriveUser author;
-	
-	private String content;
-	
-	private String htmlContent;
-	
-	private boolean deleted;
-	
-	private ReplyVerb verb;
-	
-	public CommentReply() {
-		
-	}
-	
-	public CommentReply(String content) {
-		this.content = content;
-	}
-	
-	public CommentReply(String content, ReplyVerb verb) {
-		this(content);
-		this.verb = verb;
-	}
-	
-	@Override
-	@JsonProperty("replyId")
-	public String getId() {
-		return super.getId();
-	}
+    private Date createdDate;
 
-	public Date getCreatedDate() {
-		return createdDate;
-	}
+    private Date modifiedDate;
 
-	public Date getModifiedDate() {
-		return modifiedDate;
-	}
+    private DriveUser author;
 
-	public DriveUser getAuthor() {
-		return author;
-	}
+    private String content;
 
-	public String getContent() {
-		return content;
-	}
+    private String htmlContent;
 
-	public String getHtmlContent() {
-		return htmlContent;
-	}
+    private boolean deleted;
 
-	public boolean isDeleted() {
-		return deleted;
-	}
+    private ReplyVerb verb;
 
-	public ReplyVerb getVerb() {
-		return verb;
-	}
-	
+    public CommentReply()
+    {
+
+    }
+
+    public CommentReply(String content)
+    {
+        this.content = content;
+    }
+
+    public CommentReply(String content, ReplyVerb verb)
+    {
+        this(content);
+        this.verb = verb;
+    }
+
+    @Override
+    @JsonProperty("replyId")
+    public String getId()
+    {
+        return super.getId();
+    }
+
+    public Date getCreatedDate()
+    {
+        return createdDate;
+    }
+
+    public Date getModifiedDate()
+    {
+        return modifiedDate;
+    }
+
+    public DriveUser getAuthor()
+    {
+        return author;
+    }
+
+    public String getContent()
+    {
+        return content;
+    }
+
+    public String getHtmlContent()
+    {
+        return htmlContent;
+    }
+
+    public boolean isDeleted()
+    {
+        return deleted;
+    }
+
+    public ReplyVerb getVerb()
+    {
+        return verb;
+    }
+
 }

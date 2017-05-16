@@ -27,105 +27,121 @@ import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
 /**
  * Model class representing an application that is using Google Drive API
- * 
+ *
  * @author Gabriel Axel
  */
-public class DriveApp extends ApiEntity {
-	
-	@JsonSerialize(using = ApiEnumSerializer.class)
-	@JsonDeserialize(using = IconCategoryDeserializer.class)
-	public enum IconCategory {
-		APPLICATION, DOCUMENT, DOCUMENT_SHARED;
-	}
+public class DriveApp extends ApiEntity
+{
 
-	public static class AppIcon {
-		
-		@JsonProperty
-		private IconCategory category;
-		
-		@JsonProperty
-		private int size;
-		
-		@JsonProperty
-		private String iconUrl;
-	}
-	
-	private String name;
+    @JsonSerialize(using = ApiEnumSerializer.class)
+    @JsonDeserialize(using = IconCategoryDeserializer.class)
+    public enum IconCategory
+    {
+        APPLICATION, DOCUMENT, DOCUMENT_SHARED;
+    }
 
-	private String objectType;
+    public static class AppIcon
+    {
 
-	private boolean supportsCreate;
+        @JsonProperty
+        private IconCategory category;
 
-	private boolean supportsImport;
+        @JsonProperty
+        private int size;
 
-	private boolean installed;
+        @JsonProperty
+        private String iconUrl;
+    }
 
-	private boolean authorized;
+    private String name;
 
-	private boolean useByDefault;
+    private String objectType;
 
-	private String productUrl;
+    private boolean supportsCreate;
 
-	private List<String> primaryMimeTypes;
+    private boolean supportsImport;
 
-	private List<String> secondaryMimeTypes;
+    private boolean installed;
 
-	private List<String> primaryFileExtensions;
+    private boolean authorized;
 
-	private List<String> secondaryFileExtensions;
+    private boolean useByDefault;
 
-	private List<AppIcon> icons;
+    private String productUrl;
 
-	public String getName() {
-		return name;
-	}
+    private List<String> primaryMimeTypes;
 
-	public String getObjectType() {
-		return objectType;
-	}
+    private List<String> secondaryMimeTypes;
 
-	public boolean isSupportsCreate() {
-		return supportsCreate;
-	}
+    private List<String> primaryFileExtensions;
 
-	public boolean isSupportsImport() {
-		return supportsImport;
-	}
+    private List<String> secondaryFileExtensions;
 
-	public boolean isInstalled() {
-		return installed;
-	}
+    private List<AppIcon> icons;
 
-	public boolean isAuthorized() {
-		return authorized;
-	}
+    public String getName()
+    {
+        return name;
+    }
 
-	public boolean isUseByDefault() {
-		return useByDefault;
-	}
+    public String getObjectType()
+    {
+        return objectType;
+    }
 
-	public String getProductUrl() {
-		return productUrl;
-	}
+    public boolean isSupportsCreate()
+    {
+        return supportsCreate;
+    }
 
-	public List<String> getPrimaryMimeTypes() {
-		return primaryMimeTypes;
-	}
+    public boolean isSupportsImport()
+    {
+        return supportsImport;
+    }
 
-	public List<String> getSecondaryMimeTypes() {
-		return secondaryMimeTypes;
-	}
+    public boolean isInstalled()
+    {
+        return installed;
+    }
 
-	public List<String> getPrimaryFileExtensions() {
-		return primaryFileExtensions;
-	}
+    public boolean isAuthorized()
+    {
+        return authorized;
+    }
 
-	public List<String> getSecondaryFileExtensions() {
-		return secondaryFileExtensions;
-	}
+    public boolean isUseByDefault()
+    {
+        return useByDefault;
+    }
 
-	public List<AppIcon> getIcons() {
-		return icons;
-	}
-	
+    public String getProductUrl()
+    {
+        return productUrl;
+    }
+
+    public List<String> getPrimaryMimeTypes()
+    {
+        return primaryMimeTypes;
+    }
+
+    public List<String> getSecondaryMimeTypes()
+    {
+        return secondaryMimeTypes;
+    }
+
+    public List<String> getPrimaryFileExtensions()
+    {
+        return primaryFileExtensions;
+    }
+
+    public List<String> getSecondaryFileExtensions()
+    {
+        return secondaryFileExtensions;
+    }
+
+    public List<AppIcon> getIcons()
+    {
+        return icons;
+    }
+
 }

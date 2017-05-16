@@ -27,96 +27,112 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * Model class representing a comment in a file in Google Drive
  * @author Gabriel Axel
  */
-public class FileComment extends ApiEntity {
-	
-	private static class CommentContext {
-		
-		@JsonProperty
-		private String type;
-		
-		@JsonProperty
-		private String value;
-		
-	}
+public class FileComment extends ApiEntity
+{
 
-	private Date createdDate;
-	
-	private Date modifiedDate;
-	
-	private DriveUser author;
-	
-	private String htmlContent;
-	
-	private String content;
-	
-	private boolean deleted;
-	
-	private CommentStatus status;
-	
-	@JsonProperty
-	private CommentContext context;
+    private static class CommentContext
+    {
 
-	private List<CommentReply> replies;
-	
-	public FileComment() {
-		
-	}
-	
-	public FileComment(String content) {
-		this.content = content;
-	}
-	
-	public FileComment(String content, MediaType contextType, String contextValue) {
-		this(content, contextType.toString(), contextValue);
-	}
-	
-	public FileComment(String content, String contextType, String contextValue) {
-		this(content);
-		context = new CommentContext();
-		context.type = contextType;
-		context.value = contextValue;
-	}
-	
-	@Override
-	@JsonProperty("commentId")
-	public String getId() {
-		return super.getId();
-	}
+        @JsonProperty
+        private String type;
 
-	public Date getCreatedDate() {
-		return createdDate;
-	}
+        @JsonProperty
+        private String value;
 
-	public Date getModifiedDate() {
-		return modifiedDate;
-	}
+    }
 
-	public DriveUser getAuthor() {
-		return author;
-	}
+    private Date createdDate;
 
-	public String getHtmlContent() {
-		return htmlContent;
-	}
+    private Date modifiedDate;
 
-	public String getContent() {
-		return content;
-	}
+    private DriveUser author;
 
-	public boolean isDeleted() {
-		return deleted;
-	}
+    private String htmlContent;
 
-	public CommentStatus getStatus() {
-		return status;
-	}
+    private String content;
 
-	public CommentContext getContext() {
-		return context;
-	}
+    private boolean deleted;
 
-	public List<CommentReply> getReplies() {
-		return replies;
-	}
-	
+    private CommentStatus status;
+
+    @JsonProperty
+    private CommentContext context;
+
+    private List<CommentReply> replies;
+
+    public FileComment()
+    {
+
+    }
+
+    public FileComment(String content)
+    {
+        this.content = content;
+    }
+
+    public FileComment(String content, MediaType contextType, String contextValue)
+    {
+        this(content, contextType.toString(), contextValue);
+    }
+
+    public FileComment(String content, String contextType, String contextValue)
+    {
+        this(content);
+        context = new CommentContext();
+        context.type = contextType;
+        context.value = contextValue;
+    }
+
+    @Override
+    @JsonProperty("commentId")
+    public String getId()
+    {
+        return super.getId();
+    }
+
+    public Date getCreatedDate()
+    {
+        return createdDate;
+    }
+
+    public Date getModifiedDate()
+    {
+        return modifiedDate;
+    }
+
+    public DriveUser getAuthor()
+    {
+        return author;
+    }
+
+    public String getHtmlContent()
+    {
+        return htmlContent;
+    }
+
+    public String getContent()
+    {
+        return content;
+    }
+
+    public boolean isDeleted()
+    {
+        return deleted;
+    }
+
+    public CommentStatus getStatus()
+    {
+        return status;
+    }
+
+    public CommentContext getContext()
+    {
+        return context;
+    }
+
+    public List<CommentReply> getReplies()
+    {
+        return replies;
+    }
+
 }

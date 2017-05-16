@@ -15,7 +15,7 @@
  */
 package org.springframework.social.google.connect;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
 
 import org.junit.Test;
 import org.mockito.Mockito;
@@ -24,32 +24,34 @@ import org.springframework.social.google.api.Google;
 import org.springframework.social.google.api.plus.Person;
 import org.springframework.social.google.api.plus.PlusOperations;
 
-public class GoogleAdapterTest {
+public class GoogleAdapterTest
+{
 
-	private GoogleAdapter apiAdapter = new GoogleAdapter();
+    private GoogleAdapter apiAdapter = new GoogleAdapter();
 
-	private Google google = Mockito.mock(Google.class);
+    private Google google = Mockito.mock(Google.class);
 
-	@Test
-	public void fetchProfile() {
+    @Test
+    public void fetchProfile()
+    {
 
-		PlusOperations plusOperations = Mockito.mock(PlusOperations.class);
-		Mockito.when(google.plusOperations()).thenReturn(plusOperations);
+        PlusOperations plusOperations = Mockito.mock(PlusOperations.class);
+        Mockito.when(google.plusOperations()).thenReturn(plusOperations);
 
-		Person person = Mockito.mock(Person.class);
-		Mockito.when(person.getDisplayName()).thenReturn("Gabriel Axel");
-		Mockito.when(person.getGivenName()).thenReturn("Gabriel");
-		Mockito.when(person.getFamilyName()).thenReturn("Axel");
-		Mockito.when(person.getAccountEmail()).thenReturn("guznik@gmail.com");
-		Mockito.when(person.getId()).thenReturn("114863353858610846998");
+        Person person = Mockito.mock(Person.class);
+        Mockito.when(person.getDisplayName()).thenReturn("Gabriel Axel");
+        Mockito.when(person.getGivenName()).thenReturn("Gabriel");
+        Mockito.when(person.getFamilyName()).thenReturn("Axel");
+        Mockito.when(person.getAccountEmail()).thenReturn("guznik@gmail.com");
+        Mockito.when(person.getId()).thenReturn("114863353858610846998");
 
-		Mockito.when(plusOperations.getGoogleProfile()).thenReturn(person);
-		UserProfile profile = apiAdapter.fetchUserProfile(google);
-		assertEquals("Gabriel Axel", profile.getName());
-		assertEquals("Gabriel", profile.getFirstName());
-		assertEquals("Axel", profile.getLastName());
-		assertEquals("guznik@gmail.com", profile.getEmail());
-		assertEquals("114863353858610846998", profile.getUsername());
-	}
+        Mockito.when(plusOperations.getGoogleProfile()).thenReturn(person);
+        UserProfile profile = apiAdapter.fetchUserProfile(google);
+        assertEquals("Gabriel Axel", profile.getName());
+        assertEquals("Gabriel", profile.getFirstName());
+        assertEquals("Axel", profile.getLastName());
+        assertEquals("guznik@gmail.com", profile.getEmail());
+        assertEquals("114863353858610846998", profile.getUsername());
+    }
 
 }

@@ -22,6 +22,7 @@ import org.springframework.social.google.api.query.ApiList;
  * {@link ApiList} of {@link FileRevision}
  * @author Gabriel Axel
  */
-class FileRevisionsList extends ApiList<FileRevision> {
+class FileRevisionsList extends ApiList<FileRevision>
+{
 
 }

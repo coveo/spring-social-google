@@ -25,9 +25,10 @@ import com.fasterxml.jackson.databind.annotation.JsonSerialize;
  * Enum representing a comment status (open or resolved)
  * @author Gabriel Axel
  */
-@JsonSerialize(using=ApiEnumSerializer.class)
-@JsonDeserialize(using=CommentStatusDeserializer.class)
-public enum CommentStatus {
+@JsonSerialize(using = ApiEnumSerializer.class)
+@JsonDeserialize(using = CommentStatusDeserializer.class)
+public enum CommentStatus
+{
 
-	OPEN, RESOLVED
+    OPEN, RESOLVED
 }

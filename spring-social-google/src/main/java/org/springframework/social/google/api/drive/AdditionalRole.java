@@ -25,9 +25,10 @@ import com.fasterxml.jackson.databind.annotation.JsonSerialize;
  * Enum representing a user permission additional role to a file in Google Drive
  * @author Gabriel Axel
  */
-@JsonSerialize(using=ApiEnumSerializer.class)
-@JsonDeserialize(using=AdditionalRoleDeserializer.class)
-public enum AdditionalRole {
+@JsonSerialize(using = ApiEnumSerializer.class)
+@JsonDeserialize(using = AdditionalRoleDeserializer.class)
+public enum AdditionalRole
+{
 
-	COMMENTER
+    COMMENTER
 }

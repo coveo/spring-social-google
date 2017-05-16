@@ -22,10 +22,12 @@ import org.springframework.social.google.api.impl.ApiEnumDeserializer;
  * {@link ApiEnumDeserializer} for {@link CommentStatus}
  * @author Gabriel Axel
  */
-public class CommentStatusDeserializer extends ApiEnumDeserializer<CommentStatus> {
+public class CommentStatusDeserializer extends ApiEnumDeserializer<CommentStatus>
+{
 
-	public CommentStatusDeserializer() {
-		super(CommentStatus.class);
-	}
+    public CommentStatusDeserializer()
+    {
+        super(CommentStatus.class);
+    }
 
 }

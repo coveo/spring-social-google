@@ -19,6 +19,7 @@ package org.springframework.social.google.api.plus;
  * Enum representing activity order for querying with {@link ActivityQueryBuilder}.
  * @author Gabriel Axel
  */
-public enum ActivitiesOrder {
-	BEST, RECENT
+public enum ActivitiesOrder
+{
+    BEST, RECENT
 }

@@ -21,8 +21,10 @@ package org.springframework.social.google.api.query;
  * @param <Q> {@link QueryBuilder} type
  * @param <T> Model type
  */
-public interface ApiQueryBuilder<Q extends ApiQueryBuilder<?, T>, T extends ApiPage<?>> extends QueryBuilder<Q, T> {
+public interface ApiQueryBuilder<Q extends ApiQueryBuilder<?, T>, T extends ApiPage<?>> extends QueryBuilder<Q, T>
+{
 
-	Q fromPage(String pageToken);
-	T getPage();
+    Q fromPage(String pageToken);
+
+    T getPage();
 }

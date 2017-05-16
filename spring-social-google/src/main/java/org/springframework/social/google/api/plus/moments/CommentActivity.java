@@ -15,7 +15,7 @@
  */
 package org.springframework.social.google.api.plus.moments;
 
-import static org.springframework.social.google.api.plus.moments.MomentTypes.COMMENT_ACTIVITY;
+import static org.springframework.social.google.api.plus.moments.MomentTypes.*;
 
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -25,65 +25,73 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 /**
  * Activity representing a comment on an article, blog entry, or other creative
  * work
- * 
+ *
  * @see <a
  *      href="https://developers.google.com/+/api/moment-types/comment-activity">Comment
  *      Activity</a>
  * @author Gabriel Axel
- * 
+ *
  */
 @JsonTypeName(COMMENT_ACTIVITY)
-public class CommentActivity extends Moment {
+public class CommentActivity extends Moment
+{
 
-	protected static class Result {
+    protected static class Result
+    {
 
-		@JsonProperty
-		String url;
+        @JsonProperty
+        String url;
 
-		@JsonProperty
-		String text;
+        @JsonProperty
+        String text;
 
-		@JsonProperty
-		String name;
+        @JsonProperty
+        String name;
 
-		@JsonGetter
-		String getType() {
-			return "http://schema.org/Comment";
-		}
+        @JsonGetter
+        String getType()
+        {
+            return "http://schema.org/Comment";
+        }
 
-	}
+    }
 
-	@JsonProperty
-	private Result result;
+    @JsonProperty
+    private Result result;
 
-	protected CommentActivity() {
-	}
+    protected CommentActivity()
+    {
+    }
 
-	public CommentActivity(String targetUrl, String resultUrl, String resultText) {
-		super(targetUrl);
-		result = new Result();
-		result.url = resultUrl;
-		result.text = resultText;
-	}
+    public CommentActivity(String targetUrl, String resultUrl, String resultText)
+    {
+        super(targetUrl);
+        result = new Result();
+        result.url = resultUrl;
+        result.text = resultText;
+    }
 
-	public CommentActivity(String targetUrl, String resultUrl,
-			String resultText, String resultName) {
-		this(targetUrl, resultUrl, resultText);
-		result.name = resultName;
-	}
+    public CommentActivity(String targetUrl, String resultUrl, String resultText, String resultName)
+    {
+        this(targetUrl, resultUrl, resultText);
+        result.name = resultName;
+    }
 
-	@JsonIgnore
-	public String getResultUrl() {
-		return result.url;
-	}
+    @JsonIgnore
+    public String getResultUrl()
+    {
+        return result.url;
+    }
 
-	@JsonIgnore
-	public String getResultText() {
-		return result.text;
-	}
+    @JsonIgnore
+    public String getResultText()
+    {
+        return result.text;
+    }
 
-	@JsonIgnore
-	public String getResultName() {
-		return result.name;
-	}
+    @JsonIgnore
+    public String getResultName()
+    {
+        return result.name;
+    }
 }

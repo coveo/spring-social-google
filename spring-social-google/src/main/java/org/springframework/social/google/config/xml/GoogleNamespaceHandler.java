@@ -21,15 +21,16 @@ import org.springframework.social.config.xml.AbstractProviderConfigNamespaceHand
 
 /**
  * {@link NamespaceHandler} for Spring Social Google
- * 
+ *
  * @author Hakan Dilek
  */
-public class GoogleNamespaceHandler extends
-		AbstractProviderConfigNamespaceHandler {
+public class GoogleNamespaceHandler extends AbstractProviderConfigNamespaceHandler
+{
 
-	@Override
-	protected AbstractProviderConfigBeanDefinitionParser getProviderConfigBeanDefinitionParser() {
-		return new GoogleConfigBeanDefinitionParser();
-	}
+    @Override
+    protected AbstractProviderConfigBeanDefinitionParser getProviderConfigBeanDefinitionParser()
+    {
+        return new GoogleConfigBeanDefinitionParser();
+    }
 
 }

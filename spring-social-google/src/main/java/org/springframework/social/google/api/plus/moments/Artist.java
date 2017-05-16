@@ -18,14 +18,16 @@ package org.springframework.social.google.api.plus.moments;
 /**
  * @see <a href="http://schema.org/MusicRecording">MusicRecording</a>
  * @author Gabriel Axel
- * 
+ *
  */
-public class Artist {
+public class Artist
+{
 
-	private String name;
+    private String name;
 
-	public String getName() {
-		return name;
-	}
+    public String getName()
+    {
+        return name;
+    }
 
 }

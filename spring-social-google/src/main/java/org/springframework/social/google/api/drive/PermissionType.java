@@ -25,9 +25,10 @@ import com.fasterxml.jackson.databind.annotation.JsonSerialize;
  * Enum representing a user permission type to a file in Google Drive
  * @author Gabriel Axel
  */
-@JsonSerialize(using=ApiEnumSerializer.class)
-@JsonDeserialize(using=PermissionTypeDeserializer.class)
-public enum PermissionType {
+@JsonSerialize(using = ApiEnumSerializer.class)
+@JsonDeserialize(using = PermissionTypeDeserializer.class)
+public enum PermissionType
+{
 
-	USER, GROUP, DOMAIN, ANYONE
+    USER, GROUP, DOMAIN, ANYONE
 }

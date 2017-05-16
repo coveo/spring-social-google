@@ -21,6 +21,7 @@ import org.springframework.social.google.api.query.ApiPage;
  * {@link ApiPage} for {@link Activity}s pagination result.
  * @author Gabriel Axel
  */
-public class ActivitiesPage extends ApiPage<Activity> {
+public class ActivitiesPage extends ApiPage<Activity>
+{
 
 }

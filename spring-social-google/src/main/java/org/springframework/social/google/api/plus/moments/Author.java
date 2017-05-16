@@ -17,28 +17,32 @@ package org.springframework.social.google.api.plus.moments;
 
 /**
  * A person who created the result
- * 
+ *
  * @author Gabriel Axel
- * 
+ *
  */
-public class Author {
+public class Author
+{
 
-	private String id;
+    private String id;
 
-	private String name;
+    private String name;
 
-	private String url;
+    private String url;
 
-	public String getId() {
-		return id;
-	}
+    public String getId()
+    {
+        return id;
+    }
 
-	public String getName() {
-		return name;
-	}
+    public String getName()
+    {
+        return name;
+    }
 
-	public String getUrl() {
-		return url;
-	}
+    public String getUrl()
+    {
+        return url;
+    }
 
 }

@@ -24,19 +24,21 @@ import org.springframework.social.security.provider.SocialAuthenticationService;
 /**
  * Implementation of {@link AbstractProviderConfigBeanDefinitionParser} that
  * creates a {@link GoogleConnectionFactory}.
- * 
+ *
  * @author Hakan Dilek
  */
-public class GoogleConfigBeanDefinitionParser extends
-		AbstractProviderConfigBeanDefinitionParser {
+public class GoogleConfigBeanDefinitionParser extends AbstractProviderConfigBeanDefinitionParser
+{
 
-	protected GoogleConfigBeanDefinitionParser() {
-		super(GoogleConnectionFactory.class, GoogleApiHelper.class);
-	}
+    protected GoogleConfigBeanDefinitionParser()
+    {
+        super(GoogleConnectionFactory.class, GoogleApiHelper.class);
+    }
 
-	@Override
-	protected Class<? extends SocialAuthenticationService<?>> getAuthenticationServiceClass() {
-		return GoogleAuthenticationService.class;
-	}
+    @Override
+    protected Class<? extends SocialAuthenticationService<?>> getAuthenticationServiceClass()
+    {
+        return GoogleAuthenticationService.class;
+    }
 
 }

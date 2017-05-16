@@ -17,40 +17,46 @@ package org.springframework.social.google.api.plus.moments;
 
 /**
  * Postal address
- * 
+ *
  * @author Gabriel Axel
- * 
+ *
  */
-public class PostalAddress {
+public class PostalAddress
+{
 
-	private String addressCountry;
+    private String addressCountry;
 
-	private String addressLocality;
+    private String addressLocality;
 
-	private String addressRegion;
+    private String addressRegion;
 
-	private String postalCode;
+    private String postalCode;
 
-	private String streetAddress;
+    private String streetAddress;
 
-	public String getAddressCountry() {
-		return addressCountry;
-	}
+    public String getAddressCountry()
+    {
+        return addressCountry;
+    }
 
-	public String getAddressLocality() {
-		return addressLocality;
-	}
+    public String getAddressLocality()
+    {
+        return addressLocality;
+    }
 
-	public String getAddressRegion() {
-		return addressRegion;
-	}
+    public String getAddressRegion()
+    {
+        return addressRegion;
+    }
 
-	public String getPostalCode() {
-		return postalCode;
-	}
+    public String getPostalCode()
+    {
+        return postalCode;
+    }
 
-	public String getStreetAddress() {
-		return streetAddress;
-	}
+    public String getStreetAddress()
+    {
+        return streetAddress;
+    }
 
 }

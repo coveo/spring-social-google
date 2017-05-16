@@ -15,7 +15,7 @@
  */
 package org.springframework.social.google.api.plus.impl;
 
-import static org.springframework.social.google.api.plus.impl.PlusTemplate.PEOPLE_SEARCH_URL;
+import static org.springframework.social.google.api.plus.impl.PlusTemplate.*;
 
 import org.springframework.social.google.api.plus.PeoplePage;
 import org.springframework.social.google.api.plus.PersonQueryBuilder;
@@ -26,15 +26,19 @@ import org.springframework.web.client.RestTemplate;
  * {@link PersonQueryBuilder} implementation.
  * @author Gabriel Axel
  */
-public class PersonQueryBuilderImpl extends ApiQueryBuilderImpl<PersonQueryBuilder, PeoplePage> implements PersonQueryBuilder {
+public class PersonQueryBuilderImpl extends ApiQueryBuilderImpl<PersonQueryBuilder, PeoplePage>
+        implements PersonQueryBuilder
+{
 
-	public PersonQueryBuilderImpl(RestTemplate restTemplate) {
-		super(PEOPLE_SEARCH_URL, PeoplePage.class, restTemplate);
-	}
-	
-	@Override
-	public PersonQueryBuilder searchFor(String text) {
-		return appendQueryParam("query", encode(text));
-	}
-	
+    public PersonQueryBuilderImpl(RestTemplate restTemplate)
+    {
+        super(PEOPLE_SEARCH_URL, PeoplePage.class, restTemplate);
+    }
+
+    @Override
+    public PersonQueryBuilder searchFor(String text)
+    {
+        return appendQueryParam("query", encode(text));
+    }
+
 }
