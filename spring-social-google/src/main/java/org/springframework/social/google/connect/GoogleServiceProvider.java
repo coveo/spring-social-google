@@ -15,6 +15,7 @@
  */
 package org.springframework.social.google.connect;
 
+import org.springframework.http.client.ClientHttpRequestFactory;
 import org.springframework.social.google.api.Google;
 import org.springframework.social.google.api.impl.GoogleTemplate;
 import org.springframework.social.oauth2.AbstractOAuth2ServiceProvider;
@@ -26,9 +27,11 @@ import org.springframework.social.oauth2.AbstractOAuth2ServiceProvider;
 public class GoogleServiceProvider extends AbstractOAuth2ServiceProvider<Google>
 {
 
-    public GoogleServiceProvider(String clientId, String clientSecret)
+    public GoogleServiceProvider(String clientId,
+                                 String clientSecret,
+                                 ClientHttpRequestFactory clientHttpRequestFactory)
     {
-        super(new GoogleOAuth2Template(clientId, clientSecret));
+        super(new GoogleOAuth2Template(clientId, clientSecret, clientHttpRequestFactory));
     }
 
     @Override

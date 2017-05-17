@@ -15,6 +15,7 @@
  */
 package org.springframework.social.google.connect;
 
+import org.springframework.http.client.ClientHttpRequestFactory;
 import org.springframework.social.connect.UserProfile;
 import org.springframework.social.connect.support.OAuth2ConnectionFactory;
 import org.springframework.social.google.api.Google;
@@ -27,9 +28,13 @@ import org.springframework.social.oauth2.AccessGrant;
 public class GoogleConnectionFactory extends OAuth2ConnectionFactory<Google>
 {
 
-    public GoogleConnectionFactory(String clientId, String clientSecret)
+    public GoogleConnectionFactory(String clientId,
+                                   String clientSecret,
+                                   ClientHttpRequestFactory clientHttpRequestFactory)
     {
-        super("google", new GoogleServiceProvider(clientId, clientSecret), new GoogleAdapter());
+        super("google",
+              new GoogleServiceProvider(clientId, clientSecret, clientHttpRequestFactory),
+              new GoogleAdapter());
     }
 
     @Override

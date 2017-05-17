@@ -94,14 +94,6 @@ public abstract class QueryBuilderImpl<Q extends QueryBuilder<?, T>, T> implemen
         return castThis();
     }
 
-    protected Q appendQueryParam(StringBuilder sb, String name, Enum<?> value)
-    {
-        if (value != null) {
-            appendQueryParam(name, value.name().toLowerCase());
-        }
-        return castThis();
-    }
-
     protected Q appendQueryParam(String name, String value)
     {
         if (hasText(value)) {
