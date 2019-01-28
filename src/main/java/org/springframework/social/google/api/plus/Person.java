@@ -15,17 +15,7 @@
  */
 package org.springframework.social.google.api.plus;
 
-import java.util.Date;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
-
 import org.springframework.social.google.api.ApiEntity;
-
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonSetter;
 
 /**
  * Model class representing a full Google profile
@@ -34,200 +24,114 @@ import com.fasterxml.jackson.annotation.JsonSetter;
  */
 public class Person extends ApiEntity
 {
+    private String sub;
+    private String name;
+    private String givenName;
+    private String familyName;
+    private String profile;
+    private String picture;
+    private String email;
+    private String email_verified;
+    private String locale;
+    private String hd;
 
-    private static class Name
+    public String getSub()
     {
-
-        @JsonProperty
-        private String givenName;
-
-        @JsonProperty
-        private String familyName;
+        return sub;
     }
 
-    public static class Image
+    public void setSub(String sub)
     {
-
-        @JsonProperty
-        private String url;
+        this.sub = sub;
     }
 
-    private static class PlaceLived
+    public String getName()
     {
-
-        @JsonProperty
-        private String value;
-
-        @JsonProperty
-        private boolean primary;
+        return name;
     }
 
-    private static class Email
+    public void setName(String name)
     {
-
-        @JsonProperty
-        private String value;
-
-        @JsonProperty
-        private String type;
-    }
-
-    @JsonProperty
-    private Name name;
-
-    private String displayName;
-
-    private String url;
-
-    @JsonProperty("isPlusUser")
-    private boolean plusUser;
-
-    @JsonProperty
-    private Image image;
-
-    private String thumbnailUrl;
-
-    private Date birthday;
-
-    private String gender;
-
-    private String occupation;
-
-    private String aboutMe;
-
-    private String relationshipStatus;
-
-    private List<ProfileUrl> urls;
-
-    private List<Organization> organizations;
-
-    private Map<String, Boolean> placesLived;
-
-    private Map<String, String> emails;
-
-    @Override
-    public String toString()
-    {
-        return displayName;
-    }
-
-    @JsonSetter
-    private void setPlacesLived(List<PlaceLived> placesLivedAsList)
-    {
-        placesLived = new LinkedHashMap<>();
-        if (placesLivedAsList != null) {
-            for (PlaceLived placeLived : placesLivedAsList) {
-                placesLived.put(placeLived.value, placeLived.primary);
-            }
-        }
-    }
-
-    @JsonSetter
-    private void setEmails(List<Email> emailsAsList)
-    {
-        emails = new LinkedHashMap<>();
-        if (emailsAsList != null) {
-            for (Email email : emailsAsList) {
-                emails.put(email.value, email.type);
-            }
-        }
+        this.name = name;
     }
 
     public String getGivenName()
     {
-        return name == null ? null : name.givenName;
+        return givenName;
+    }
+
+    public void setGivenName(String givenName)
+    {
+        this.givenName = givenName;
     }
 
     public String getFamilyName()
     {
-        return name == null ? null : name.familyName;
+        return familyName;
     }
 
-    public String getDisplayName()
+    public void setFamilyName(String familyName)
     {
-        return displayName;
+        this.familyName = familyName;
     }
 
-    public String getUrl()
+    public String getProfile()
     {
-        return url;
+        return profile;
     }
 
-    public boolean isPlusUser()
+    public void setProfile(String profile)
     {
-        return plusUser;
+        this.profile = profile;
     }
 
-    public String getImageUrl()
+    public String getPicture()
     {
-        if (thumbnailUrl != null) {
-            return thumbnailUrl;
-        }
-        if (image != null) {
-            return image.url;
-        }
-        return null;
+        return picture;
     }
 
-    public Date getBirthday()
+    public void setPicture(String picture)
     {
-        return birthday;
+        this.picture = picture;
     }
 
-    public String getGender()
+    public String getEmail()
     {
-        return gender;
+        return email;
     }
 
-    public String getOccupation()
+    public void setEmail(String email)
     {
-        return occupation;
+        this.email = email;
     }
 
-    public String getAboutMe()
+    public String getEmail_verified()
     {
-        return aboutMe;
+        return email_verified;
     }
 
-    public String getRelationshipStatus()
+    public void setEmail_verified(String email_verified)
     {
-        return relationshipStatus;
+        this.email_verified = email_verified;
     }
 
-    public List<ProfileUrl> getUrls()
+    public String getLocale()
     {
-        return urls;
+        return locale;
     }
 
-    public List<Organization> getOrganizations()
+    public void setLocale(String locale)
     {
-        return organizations;
+        this.locale = locale;
     }
 
-    public Map<String, Boolean> getPlacesLived()
+    public String getHd()
     {
-        return placesLived;
+        return hd;
     }
 
-    public Map<String, String> getEmails()
+    public void setHd(String hd)
     {
-        return emails;
-    }
-
-    public Set<String> getEmailAddresses()
-    {
-        return emails == null ? null : emails.keySet();
-    }
-
-    public String getAccountEmail()
-    {
-        if (emails != null) {
-            for (Entry<String, String> entry : emails.entrySet()) {
-                if (entry.getValue().equals("account")) {
-                    return entry.getKey();
-                }
-            }
-        }
-        return null;
+        this.hd = hd;
     }
 }

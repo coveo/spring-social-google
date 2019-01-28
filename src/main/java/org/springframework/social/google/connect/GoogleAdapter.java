@@ -35,7 +35,7 @@ public class GoogleAdapter implements ApiAdapter<Google>
     public boolean test(Google google)
     {
         try {
-            google.plusOperations().getGoogleProfile();
+            google.openIdOperations().getGoogleProfile();
             return true;
         } catch (ApiException e) {
             return false;
@@ -45,20 +45,20 @@ public class GoogleAdapter implements ApiAdapter<Google>
     @Override
     public void setConnectionValues(Google google, ConnectionValues values)
     {
-        Person profile = google.plusOperations().getGoogleProfile();
+        Person profile = google.openIdOperations().getGoogleProfile();
         values.setProviderUserId(profile.getId());
-        values.setDisplayName(profile.getDisplayName());
-        values.setProfileUrl(profile.getUrl());
-        values.setImageUrl(profile.getImageUrl());
+        values.setDisplayName(profile.getName());
+        values.setProfileUrl(profile.getProfile());
+        values.setImageUrl(profile.getPicture());
     }
 
     @Override
     public UserProfile fetchUserProfile(Google google)
     {
-        Person profile = google.plusOperations().getGoogleProfile();
+        Person profile = google.openIdOperations().getGoogleProfile();
         return new UserProfileBuilder().setUsername(profile.getId())
-                                       .setEmail(profile.getAccountEmail())
-                                       .setName(profile.getDisplayName())
+                                       .setEmail(profile.getEmail())
+                                       .setName(profile.getName())
                                        .setFirstName(profile.getGivenName())
                                        .setLastName(profile.getFamilyName())
                                        .build();

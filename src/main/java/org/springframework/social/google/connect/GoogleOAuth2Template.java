@@ -46,8 +46,8 @@ public class GoogleOAuth2Template extends OAuth2Template
     {
         super(clientId,
               clientSecret,
-              "https://accounts.google.com/o/oauth2/auth",
-              "https://accounts.google.com/o/oauth2/token");
+              "https://accounts.google.com/o/oauth2/v2/auth",
+              "https://www.googleapis.com/oauth2/v4/token");
         this.clientHttpRequestFactory = clientHttpRequestFactory;
         setUseParametersForClientAuthentication(true);
     }

@@ -18,6 +18,7 @@ package org.springframework.social.google.api;
 import org.springframework.social.ApiBinding;
 import org.springframework.social.google.api.drive.DriveOperations;
 import org.springframework.social.google.api.impl.GoogleTemplate;
+import org.springframework.social.google.api.plus.OpenIdOperations;
 import org.springframework.social.google.api.plus.PlusOperations;
 import org.springframework.social.google.api.tasks.TaskOperations;
 
@@ -29,6 +30,8 @@ import org.springframework.social.google.api.tasks.TaskOperations;
  */
 public interface Google extends ApiBinding
 {
+
+    OpenIdOperations openIdOperations();
 
     /**
      * Retrieves {@link PlusOperations}, used for interacting with Google+ API.
