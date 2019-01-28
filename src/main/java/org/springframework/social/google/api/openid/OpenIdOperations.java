@@ -1,7 +1,7 @@
 /**
  * Copyright (c) 2011 - 2018, Coveo Solutions Inc.
  */
-package org.springframework.social.google.api.plus;
+package org.springframework.social.google.api.openid;
 
 public interface OpenIdOperations
 {

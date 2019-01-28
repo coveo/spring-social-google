@@ -21,7 +21,7 @@ import org.springframework.social.connect.ConnectionValues;
 import org.springframework.social.connect.UserProfile;
 import org.springframework.social.connect.UserProfileBuilder;
 import org.springframework.social.google.api.Google;
-import org.springframework.social.google.api.plus.Person;
+import org.springframework.social.google.api.openid.Person;
 
 /**
  * Google ApiAdapter implementation.
@@ -46,7 +46,7 @@ public class GoogleAdapter implements ApiAdapter<Google>
     public void setConnectionValues(Google google, ConnectionValues values)
     {
         Person profile = google.openIdOperations().getGoogleProfile();
-        values.setProviderUserId(profile.getId());
+        values.setProviderUserId(profile.getSub());
         values.setDisplayName(profile.getName());
         values.setProfileUrl(profile.getProfile());
         values.setImageUrl(profile.getPicture());
@@ -56,7 +56,7 @@ public class GoogleAdapter implements ApiAdapter<Google>
     public UserProfile fetchUserProfile(Google google)
     {
         Person profile = google.openIdOperations().getGoogleProfile();
-        return new UserProfileBuilder().setUsername(profile.getId())
+        return new UserProfileBuilder().setUsername(profile.getEmail())
                                        .setEmail(profile.getEmail())
                                        .setName(profile.getName())
                                        .setFirstName(profile.getGivenName())

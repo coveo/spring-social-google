@@ -13,16 +13,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.springframework.social.google.api.plus;
-
-import org.springframework.social.google.api.ApiEntity;
+package org.springframework.social.google.api.openid;
 
 /**
  * Model class representing a full Google profile
  *
  * @author Gabriel Axel
  */
-public class Person extends ApiEntity
+public class Person
 {
     private String sub;
     private String name;
@@ -31,7 +29,7 @@ public class Person extends ApiEntity
     private String profile;
     private String picture;
     private String email;
-    private String email_verified;
+    private boolean email_verified;
     private String locale;
     private String hd;
 
@@ -105,12 +103,12 @@ public class Person extends ApiEntity
         this.email = email;
     }
 
-    public String getEmail_verified()
+    public boolean getEmail_verified()
     {
         return email_verified;
     }
 
-    public void setEmail_verified(String email_verified)
+    public void setEmail_verified(boolean email_verified)
     {
         this.email_verified = email_verified;
     }

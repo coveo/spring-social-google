@@ -28,14 +28,8 @@ import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.http.converter.ResourceHttpMessageConverter;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 import org.springframework.social.google.api.Google;
-import org.springframework.social.google.api.drive.DriveOperations;
-import org.springframework.social.google.api.drive.impl.DriveTemplate;
-import org.springframework.social.google.api.plus.OpenIdOperations;
-import org.springframework.social.google.api.plus.PlusOperations;
-import org.springframework.social.google.api.plus.impl.OpenIdTemplate;
-import org.springframework.social.google.api.plus.impl.PlusTemplate;
-import org.springframework.social.google.api.tasks.TaskOperations;
-import org.springframework.social.google.api.tasks.impl.TaskTemplate;
+import org.springframework.social.google.api.openid.OpenIdOperations;
+import org.springframework.social.google.api.openid.OpenIdTemplate;
 import org.springframework.social.oauth2.AbstractOAuth2ApiBinding;
 import org.springframework.social.oauth2.OAuth2Version;
 
@@ -59,37 +53,12 @@ public class GoogleTemplate extends AbstractOAuth2ApiBinding implements Google
     private String accessToken;
 
     private OpenIdOperations openIdOperations;
-    private PlusOperations plusOperations;
-    private TaskOperations taskOperations;
-    private DriveOperations driveOperations;
 
-    /**
-     * Creates a new instance of GoogleTemplate.
-     * This constructor creates a new GoogleTemplate able to perform unauthenticated operations against Google+.
-     */
-    public GoogleTemplate()
-    {
-        initialize();
-    }
-
-    /**
-     * Creates a new instance of GoogleTemplate.
-     * This constructor creates the FacebookTemplate using a given access token.
-     * @param accessToken an access token granted by Google after OAuth2 authentication
-     */
     public GoogleTemplate(String accessToken)
     {
         super(accessToken);
         this.accessToken = accessToken;
-        initialize();
-    }
-
-    private void initialize()
-    {
-        openIdOperations = new OpenIdTemplate(getRestTemplate(), isAuthorized());
-        plusOperations = new PlusTemplate(getRestTemplate(), isAuthorized());
-        taskOperations = new TaskTemplate(getRestTemplate(), isAuthorized());
-        driveOperations = new DriveTemplate(getRestTemplate(), isAuthorized());
+        openIdOperations = new OpenIdTemplate(getRestTemplate());
     }
 
     @Override
@@ -125,24 +94,6 @@ public class GoogleTemplate extends AbstractOAuth2ApiBinding implements Google
     public OpenIdOperations openIdOperations()
     {
         return openIdOperations;
-    }
-
-    @Override
-    public PlusOperations plusOperations()
-    {
-        return plusOperations;
-    }
-
-    @Override
-    public TaskOperations taskOperations()
-    {
-        return taskOperations;
-    }
-
-    @Override
-    public DriveOperations driveOperations()
-    {
-        return driveOperations;
     }
 
     @Override
