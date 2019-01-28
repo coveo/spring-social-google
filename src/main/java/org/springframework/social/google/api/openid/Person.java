@@ -15,21 +15,22 @@
  */
 package org.springframework.social.google.api.openid;
 
-/**
- * Model class representing a full Google profile
- *
- * @author Gabriel Axel
- */
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class Person
 {
+    @JsonProperty("given_name")
+    private String givenName;
+    @JsonProperty("family_name")
+    private String familyName;
+    @JsonProperty("email_verified")
+    private Boolean emailVerified;
+
     private String sub;
     private String name;
-    private String givenName;
-    private String familyName;
     private String profile;
     private String picture;
     private String email;
-    private boolean email_verified;
     private String locale;
     private String hd;
 
@@ -103,14 +104,14 @@ public class Person
         this.email = email;
     }
 
-    public boolean getEmail_verified()
+    public Boolean isEmailVerified()
     {
-        return email_verified;
+        return emailVerified;
     }
 
-    public void setEmail_verified(boolean email_verified)
+    public void setEmailVerified(Boolean emailVerified)
     {
-        this.email_verified = email_verified;
+        this.emailVerified = emailVerified;
     }
 
     public String getLocale()

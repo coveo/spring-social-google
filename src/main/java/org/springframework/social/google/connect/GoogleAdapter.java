@@ -56,7 +56,7 @@ public class GoogleAdapter implements ApiAdapter<Google>
     public UserProfile fetchUserProfile(Google google)
     {
         Person profile = google.openIdOperations().getGoogleProfile();
-        return new UserProfileBuilder().setUsername(profile.getEmail())
+        return new UserProfileBuilder().setUsername(profile.getSub())
                                        .setEmail(profile.getEmail())
                                        .setName(profile.getName())
                                        .setFirstName(profile.getGivenName())
