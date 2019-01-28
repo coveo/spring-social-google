@@ -15,6 +15,8 @@
  */
 package org.springframework.social.google.connect;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.social.ApiException;
 import org.springframework.social.connect.ApiAdapter;
 import org.springframework.social.connect.ConnectionValues;
@@ -30,6 +32,7 @@ import org.springframework.social.google.api.openid.Person;
  */
 public class GoogleAdapter implements ApiAdapter<Google>
 {
+    private static final Logger logger = LoggerFactory.getLogger(GoogleAdapter.class);
 
     @Override
     public boolean test(Google google)
@@ -56,6 +59,12 @@ public class GoogleAdapter implements ApiAdapter<Google>
     public UserProfile fetchUserProfile(Google google)
     {
         Person profile = google.openIdOperations().getGoogleProfile();
+        Boolean emailVerified = profile.isEmailVerified();
+        if (emailVerified == null) {
+            logger.warn("User '{}' has a null email_verified field.", profile.getEmail());
+        } else if (!emailVerified) {
+            logger.warn("User '{}' has an email not verified!", profile.getEmail());
+        }
         return new UserProfileBuilder().setUsername(profile.getSub())
                                        .setEmail(profile.getEmail())
                                        .setName(profile.getName())
@@ -69,5 +78,4 @@ public class GoogleAdapter implements ApiAdapter<Google>
     {
         throw new UnsupportedOperationException();
     }
-
 }

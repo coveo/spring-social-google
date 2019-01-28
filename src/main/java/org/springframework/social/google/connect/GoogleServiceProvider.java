@@ -39,5 +39,4 @@ public class GoogleServiceProvider extends AbstractOAuth2ServiceProvider<Google>
     {
         return new GoogleTemplate(accessToken);
     }
-
 }
