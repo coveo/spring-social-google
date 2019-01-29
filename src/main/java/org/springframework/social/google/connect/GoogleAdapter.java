@@ -49,7 +49,7 @@ public class GoogleAdapter implements ApiAdapter<Google>
     public void setConnectionValues(Google google, ConnectionValues values)
     {
         Person profile = google.openIdOperations().getGoogleProfile();
-        values.setProviderUserId(profile.getSub());
+        values.setProviderUserId(profile.getSubjectIdentifier());
         values.setDisplayName(profile.getName());
         values.setProfileUrl(profile.getProfile());
         values.setImageUrl(profile.getPicture());
@@ -65,7 +65,7 @@ public class GoogleAdapter implements ApiAdapter<Google>
         } else if (!emailVerified) {
             logger.warn("User '{}' has an email not verified!", profile.getEmail());
         }
-        return new UserProfileBuilder().setUsername(profile.getSub())
+        return new UserProfileBuilder().setUsername(profile.getSubjectIdentifier())
                                        .setEmail(profile.getEmail())
                                        .setName(profile.getName())
                                        .setFirstName(profile.getGivenName())

@@ -25,23 +25,25 @@ public class Person
     private String familyName;
     @JsonProperty("email_verified")
     private Boolean emailVerified;
+    @JsonProperty("sub")
+    private String subjectIdentifier;
+    @JsonProperty("hd")
+    private String hostedDomain;
 
-    private String sub;
     private String name;
     private String profile;
     private String picture;
     private String email;
     private String locale;
-    private String hd;
 
-    public String getSub()
+    public String getSubjectIdentifier()
     {
-        return sub;
+        return subjectIdentifier;
     }
 
-    public void setSub(String sub)
+    public void setSubjectIdentifier(String subjectIdentifier)
     {
-        this.sub = sub;
+        this.subjectIdentifier = subjectIdentifier;
     }
 
     public String getName()
@@ -124,13 +126,13 @@ public class Person
         this.locale = locale;
     }
 
-    public String getHd()
+    public String getHostedDomain()
     {
-        return hd;
+        return hostedDomain;
     }
 
-    public void setHd(String hd)
+    public void setHostedDomain(String hostedDomain)
     {
-        this.hd = hd;
+        this.hostedDomain = hostedDomain;
     }
 }
